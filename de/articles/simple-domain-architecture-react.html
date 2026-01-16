@@ -5,74 +5,102 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Einfache Domain-Architektur für React - Denis Lutz</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        sol: {
+                            base03: '#002b36',
+                            base02: '#073642',
+                            base01: '#586e75',
+                            base00: '#657b83',
+                            base0: '#839496',
+                            base1: '#93a1a1',
+                            base2: '#eee8d5',
+                            base3: '#fdf6e3',
+                            yellow: '#b58900',
+                            orange: '#cb4b16',
+                            red: '#dc322f',
+                            magenta: '#d33682',
+                            violet: '#6c71c4',
+                            blue: '#268bd2',
+                            cyan: '#2aa198',
+                            green: '#859900',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-sol-base3 text-sol-base00">
     <!-- Language Switcher -->
-    <nav class="bg-slate-900 text-white py-2">
+    <nav class="bg-sol-base2 text-sol-base01 py-2 border-b border-sol-base1">
         <div class="max-w-4xl mx-auto px-6 flex justify-between text-sm">
-            <a href="../" class="hover:text-slate-300">&larr; Zurück zur Startseite</a>
+            <a href="../" class="hover:text-sol-blue">&larr; Zurück zur Startseite</a>
             <div class="flex gap-4">
-                <a href="../../en/articles/simple-domain-architecture-react.html" class="hover:text-slate-300">EN</a>
-                <span class="text-slate-300">DE</span>
+                <a href="../../en/articles/simple-domain-architecture-react.html" class="hover:text-sol-blue">EN</a>
+                <span class="text-sol-base01 font-semibold">DE</span>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <header class="bg-gradient-to-br from-slate-900 to-slate-700 text-white py-16">
+    <header class="bg-sol-base2 text-sol-base01 py-16 border-b border-sol-base1">
         <div class="max-w-4xl mx-auto px-6">
-            <h1 class="text-4xl font-bold mb-4">Einfache Domain-Architektur für React</h1>
-            <p class="text-slate-300">Ein pragmatischer Ansatz zur Strukturierung von React-Anwendungen</p>
+            <h1 class="text-4xl font-bold mb-4 text-sol-base02">Einfache Domain-Architektur für React</h1>
+            <p class="text-sol-base00">Ein pragmatischer Ansatz zur Strukturierung von React-Anwendungen</p>
         </div>
     </header>
 
     <main class="max-w-4xl mx-auto px-6 py-12">
-        <article class="bg-white rounded-lg shadow-md p-8">
+        <article class="bg-sol-base3 rounded-lg shadow-md p-8 border border-sol-base1">
 
             <!-- Introduction -->
             <section class="mb-10">
-                <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                <p class="text-lg text-sol-base00 leading-relaxed mb-6">
                     "React.js - Eine JavaScript-Bibliothek zum Erstellen von Benutzeroberflächen." Aus dem Titel auf der React-Homepage können wir klar erkennen: React hat keine eingebaute Architektur, da es kein Framework ist, sondern nur eine schlanke Bibliothek.
                 </p>
-                <p class="text-gray-700 leading-relaxed mb-6">
+                <p class="text-sol-base00 leading-relaxed mb-6">
                     Bevor ich die Probleme der fehlenden Architektur in React diskutiere, möchte ich auf das Konzept des "Domain-Driven Design" verweisen.
                 </p>
-                <blockquote class="border-l-4 border-slate-400 pl-6 py-2 my-6 bg-slate-50 rounded-r">
-                    <p class="text-gray-600 italic">
+                <blockquote class="border-l-4 border-sol-base1 pl-6 py-2 my-6 bg-sol-base2 rounded-r">
+                    <p class="text-sol-base01 italic">
                         "Domain-Driven Design ist ein Ansatz zur Softwareentwicklung, der die Entwicklung auf die Programmierung eines Domänenmodells ausrichtet, das ein tiefes Verständnis der Prozesse und Regeln einer Domäne hat. Der Name stammt aus einem Buch von Eric Evans aus dem Jahr 2003, das den Ansatz durch einen Katalog von Mustern beschreibt."
                     </p>
-                    <cite class="text-sm text-slate-500 mt-2 block">— Martin Fowler</cite>
+                    <cite class="text-sm text-sol-base00 mt-2 block">— Martin Fowler</cite>
                 </blockquote>
-                <p class="text-gray-700 leading-relaxed mb-6">
+                <p class="text-sol-base00 leading-relaxed mb-6">
                     In meiner Praxis beziehe ich mich auf eine Domain, wenn ich über den Zuständigkeitsbereich eines Codestücks spreche. Es kann die Geschäftsdomäne sein, wie die Bankendomäne in einer Fintech-Anwendung. Es kann auch die technische Domäne sein, wie HTTP-Logik-Handling, Fehlerbehandlung und Konfiguration für REST-Kommunikation.
                 </p>
-                <p class="text-gray-700 leading-relaxed">
+                <p class="text-sol-base00 leading-relaxed">
                     Diese Abstraktion ermöglicht es, alle in DDD bekannten Architekturmuster zu vermeiden und einfach die Idee der Code-Verantwortung für einen bestimmten Logiktyp (die Domain) zu nutzen. Mit diesem Ansatz können wir eine Diskussion über React.js-Architektur beginnen.
                 </p>
             </section>
 
             <!-- Signs of Missing Architecture -->
             <section class="mb-10">
-                <h2 class="text-2xl font-bold text-slate-800 mb-6 border-b-2 border-slate-200 pb-3">Anzeichen einer fehlenden React-Architektur</h2>
-                <ul class="space-y-4 text-gray-700">
+                <h2 class="text-2xl font-bold text-sol-base01 mb-6 border-b-2 border-sol-base1 pb-3">Anzeichen einer fehlenden React-Architektur</h2>
+                <ul class="space-y-4 text-sol-base00">
                     <li class="flex items-start">
-                        <span class="text-red-500 mr-3 mt-1">&#10007;</span>
+                        <span class="text-sol-red mr-3 mt-1">&#10007;</span>
                         <span>Keine Trennung zwischen reiner UI und domänenspezifischer UI-Logik — Sie können Ihre reinen Layout-Komponenten nicht für die Wiederverwendung in anderen Projekten Ihres Unternehmens extrahieren</span>
                     </li>
                     <li class="flex items-start">
-                        <span class="text-red-500 mr-3 mt-1">&#10007;</span>
+                        <span class="text-sol-red mr-3 mt-1">&#10007;</span>
                         <span>Nach der Smart- und Dumb-Components-Philosophie sind die reinen UI-Komponenten so dumm, dass sie schwer zu verwenden sind — zahllose Funktionen werden ohne Standardwerte in die Komponente übergeben, sodass man alles über sie wissen muss, um sie zu nutzen</span>
                     </li>
                     <li class="flex items-start">
-                        <span class="text-red-500 mr-3 mt-1">&#10007;</span>
+                        <span class="text-sol-red mr-3 mt-1">&#10007;</span>
                         <span>Neue Entwickler haben Schwierigkeiten, Logik wiederzuverwenden, da die gesamte Codebasis aus einzeln exportierten Methoden mit abstrakten Namen besteht — Auto-Vervollständigung ist ohne Kenntnis der spezifischen Methodennamen unmöglich</span>
                     </li>
                     <li class="flex items-start">
-                        <span class="text-red-500 mr-3 mt-1">&#10007;</span>
+                        <span class="text-sol-red mr-3 mt-1">&#10007;</span>
                         <span>Architekturschichten sind vermischt — die höchsten View-Komponenten behandeln HTTP-Response-Codes direkt, ohne zentrale Stelle für einheitliche Fehlerbehandlung</span>
                     </li>
                     <li class="flex items-start">
-                        <span class="text-red-500 mr-3 mt-1">&#10007;</span>
+                        <span class="text-sol-red mr-3 mt-1">&#10007;</span>
                         <span>Das Konzept domänenspezifischer Logik existiert nicht — jedes Feature baut seine Berechnungen zufällig direkt in der "Smart Component" auf, vermischt mit der eigenen UI-Logik</span>
                     </li>
                 </ul>
@@ -80,78 +108,61 @@
 
             <!-- Historical Context -->
             <section class="mb-10">
-                <h2 class="text-2xl font-bold text-slate-800 mb-6 border-b-2 border-slate-200 pb-3">Ein Blick zurück auf architektonische Freiheit</h2>
-                <p class="text-gray-700 leading-relaxed mb-6">
+                <h2 class="text-2xl font-bold text-sol-base01 mb-6 border-b-2 border-sol-base1 pb-3">Ein Blick zurück auf architektonische Freiheit</h2>
+                <p class="text-sol-base00 leading-relaxed mb-6">
                     Dies ist das Ergebnis architektonischer Freiheit. Wir hatten ähnliche Situationen, bevor meinungsstarke Frameworks aufkamen. Ich erinnere mich gut, als Ruby on Rails um 2006 entstand. Als Mainstream-Framework hatte es eine eingebaute Architektur. Alle großen Startup-Produkte wurden fast ein Jahrzehnt lang mit großem Erfolg in Rails geschrieben. RoR erreichte enormen Erfolg, weil es Richtung gab, eine komplette Out-of-the-Box-Architektur und einen vollständig konfigurierten technischen Stack.
                 </p>
-                <p class="text-gray-700 leading-relaxed mb-6">
+                <p class="text-sol-base00 leading-relaxed mb-6">
                     Warum also geben wir diese gelernten Lektionen auf?
                 </p>
-                <p class="text-gray-700 leading-relaxed">
+                <p class="text-sol-base00 leading-relaxed">
                     Lösungen sind unterwegs, obwohl es länger dauert als es sollte. Angular zum Beispiel hat dieses Problem NICHT — es hat eine eingebaute Architektur. Frameworks wie Next.js haben dieses Problem ebenfalls erkannt und bauen mehr Meinungen in ihre Architektur ein. Allerdings fehlt Next.js noch ein domänenorientierter Ansatz — konkret fehlt eine Trennung in Domänen- und technische Dienste als Teil des Frameworks.
                 </p>
             </section>
 
             <!-- The Solution -->
             <section class="mb-10">
-                <h2 class="text-2xl font-bold text-slate-800 mb-6 border-b-2 border-slate-200 pb-3">Die vereinfachte Domain-Architektur</h2>
-                <p class="text-gray-700 leading-relaxed mb-6">
+                <h2 class="text-2xl font-bold text-sol-base01 mb-6 border-b-2 border-sol-base1 pb-3">Die vereinfachte Domain-Architektur</h2>
+                <p class="text-sol-base00 leading-relaxed mb-6">
                     Da keine große Domain-Orientierung existiert, sind Sie besser beraten, dieses Thema anzugehen und innerhalb Ihres Teams eine Architektur zu definieren, die für alle funktioniert. Ein Architekturstil, der in vielen meiner Projekte gut funktioniert hat, ist das, was ich die <strong>"Vereinfachte Domain-Architektur"</strong> nenne.
                 </p>
 
-                <!-- Architecture Diagram Description -->
-                <div class="bg-slate-100 rounded-lg p-6 my-8">
-                    <div class="grid grid-cols-2 gap-4 text-center">
-                        <div class="bg-blue-100 border-2 border-blue-300 rounded-lg p-4">
-                            <h4 class="font-semibold text-blue-800">UI Plain Domain</h4>
-                            <p class="text-xs text-blue-600 mt-1">Wiederverwendbare UI-Komponenten</p>
-                        </div>
-                        <div class="bg-green-100 border-2 border-green-300 rounded-lg p-4">
-                            <h4 class="font-semibold text-green-800">UI Business Domain</h4>
-                            <p class="text-xs text-green-600 mt-1">Geschäftsspezifische Features</p>
-                        </div>
-                        <div class="bg-purple-100 border-2 border-purple-300 rounded-lg p-4">
-                            <h4 class="font-semibold text-purple-800">Service Business Domain</h4>
-                            <p class="text-xs text-purple-600 mt-1">Geschäftslogik & -abläufe</p>
-                        </div>
-                        <div class="bg-orange-100 border-2 border-orange-300 rounded-lg p-4">
-                            <h4 class="font-semibold text-orange-800">Service Tech Domain</h4>
-                            <p class="text-xs text-orange-600 mt-1">Infrastruktur-Services</p>
-                        </div>
-                    </div>
+                <!-- Architecture Diagram -->
+                <div class="my-8">
+                    <img src="../../img/SimpleDomainArchitec.png" alt="Simple Domain Architecture for React.js" class="w-full rounded-lg shadow-md border border-sol-base1">
                 </div>
             </section>
 
             <!-- UI Plain Domain -->
             <section class="mb-10">
-                <h3 class="text-xl font-bold text-slate-800 mb-4">UI Plain Domain</h3>
-                <p class="text-gray-700 leading-relaxed mb-4">
+                <h3 class="text-xl font-bold text-sol-base01 mb-4">UI Plain Domain</h3>
+                <p class="text-sol-base00 leading-relaxed mb-4">
                     Diese Schicht enthält nur UI-Komponenten, die nicht an das Geschäft gebunden sind. Stellen Sie sich vor, Sie schreiben eine andere Anwendung und können einfach Ihre UI-Komponenten wiederverwenden: Textfelder, Buttons, Formulare und Panels. Plain-UI-Komponenten sollten als teilbare Bibliothek für Ihr gesamtes Unternehmen gedacht sein.
                 </p>
-                <p class="text-gray-700 leading-relaxed">
+                <p class="text-sol-base00 leading-relaxed">
                     Ein sehr eleganter Ansatz wird vom <strong>nx.dev Monorepo-Framework</strong> bereitgestellt, wo Sie leicht teilbare Bibliotheken definieren können. Die Plain-UI-Domain sollte niemals Context-API oder Domain-Services referenzieren, um vollständig teilbar zu bleiben. Abhängigkeiten fließen nur in diese Schicht hinein, niemals heraus.
                 </p>
             </section>
 
             <!-- UI Business Domain -->
             <section class="mb-10">
-                <h3 class="text-xl font-bold text-slate-800 mb-4">UI Business Domain</h3>
-                <p class="text-gray-700 leading-relaxed">
+                <h3 class="text-xl font-bold text-sol-base01 mb-4">UI Business Domain</h3>
+                <p class="text-sol-base00 leading-relaxed">
                     Diese Schicht enthält Ihre geschäftsorientierten Features. Die UI-Business-Domain referenziert hauptsächlich die Plain-UI und die Business-Service-Domain zur Implementierung von Features. Sie kann auch einige Tech-Services referenzieren — zum Beispiel ist ein Routing-Service UI-bezogen, kann aber als Tech-Service betrachtet werden, da er nicht domänenspezifisch ist.
                 </p>
             </section>
 
             <!-- Service Business Domain -->
             <section class="mb-10">
-                <h3 class="text-xl font-bold text-slate-800 mb-4">Service Business Domain</h3>
-                <p class="text-gray-700 leading-relaxed mb-6">
+                <h3 class="text-xl font-bold text-sol-base01 mb-4">Service Business Domain</h3>
+                <p class="text-sol-base00 leading-relaxed mb-6">
                     Dies sind Ihre geschäftsspezifischen Services. Für eine Bankanwendung würden Sie hier Geschäftsabläufe und Geschäftslogik koordinieren. Die Business-Domain nutzt Tech-Services zur Ausführung ihrer Aufgaben und schafft eine Abstraktion über reine Technik. Ein Business-Service kann über die richtige Fehlerbehandlung entscheiden, bevor er Informationen an die UI weitergibt. Die UI hat es leichter, und Sie wiederholen sich nie, da Sie die Logik für einen Geschäftsfall in Ihrem Business-Service konsolidieren.
                 </p>
 
                 <!-- Code Example -->
-                <div class="bg-slate-900 rounded-lg p-6 overflow-x-auto">
-                    <p class="text-slate-400 text-sm mb-4">Beispiel: PhoneNumberService</p>
-                    <pre class="text-sm text-slate-100"><code>import parsePhoneNumber from "libphonenumber-js/max";
+                <div class="bg-sol-base02 rounded-lg p-6 overflow-x-auto">
+                    <p class="text-sol-base1 text-sm mb-4">Beispiel: PhoneNumberService</p>
+                    <pre class="text-sm text-sol-base1"><code>import parsePhoneNumber from "libphonenumber-js/max";
 
 const DEFAULT_COUNTRY = "DE";
 const INVALID_NUMBER_MSG = "Your phone number is not valid.";
@@ -186,30 +197,30 @@ export default PhoneNumberService;</code></pre>
                 </div>
 
                 <div class="mt-6">
-                    <h4 class="font-semibold text-slate-800 mb-3">Wichtige Vorteile dieses Musters:</h4>
-                    <ul class="space-y-2 text-gray-700">
+                    <h4 class="font-semibold text-sol-base01 mb-3">Wichtige Vorteile dieses Musters:</h4>
+                    <ul class="space-y-2 text-sol-base00">
                         <li class="flex items-start">
-                            <span class="text-green-500 mr-3">&#10003;</span>
+                            <span class="text-sol-green mr-3">&#10003;</span>
                             <span>Klare Kapselung privater Methoden</span>
                         </li>
                         <li class="flex items-start">
-                            <span class="text-green-500 mr-3">&#10003;</span>
+                            <span class="text-sol-green mr-3">&#10003;</span>
                             <span>Eine klare API nach außen</span>
                         </li>
                         <li class="flex items-start">
-                            <span class="text-green-500 mr-3">&#10003;</span>
+                            <span class="text-sol-green mr-3">&#10003;</span>
                             <span>Kapselung externer Bibliotheken</span>
                         </li>
                         <li class="flex items-start">
-                            <span class="text-green-500 mr-3">&#10003;</span>
+                            <span class="text-sol-green mr-3">&#10003;</span>
                             <span>Wiederverwendung interner privater Methoden</span>
                         </li>
                         <li class="flex items-start">
-                            <span class="text-green-500 mr-3">&#10003;</span>
+                            <span class="text-sol-green mr-3">&#10003;</span>
                             <span>Domänenspezifische Validierungsmeldungen</span>
                         </li>
                         <li class="flex items-start">
-                            <span class="text-green-500 mr-3">&#10003;</span>
+                            <span class="text-sol-green mr-3">&#10003;</span>
                             <span>Jede UI-Komponente, die es nutzt, erhält Logik von einer einzigen Stelle</span>
                         </li>
                     </ul>
@@ -218,33 +229,33 @@ export default PhoneNumberService;</code></pre>
 
             <!-- Service Tech Domain -->
             <section class="mb-10">
-                <h3 class="text-xl font-bold text-slate-800 mb-4">Service Tech Domain</h3>
-                <p class="text-gray-700 leading-relaxed mb-4">
+                <h3 class="text-xl font-bold text-sol-base01 mb-4">Service Tech Domain</h3>
+                <p class="text-sol-base00 leading-relaxed mb-4">
                     Alles, was nicht geschäftlich ist, kann als Ihr Tech-Service betrachtet werden — es ist auch Ihre App-Infrastruktur. Typische Beispiele sind:
                 </p>
-                <ul class="space-y-2 text-gray-700 ml-6">
+                <ul class="space-y-2 text-sol-base00 ml-6">
                     <li class="flex items-start">
-                        <span class="text-slate-400 mr-3">&#8226;</span>
+                        <span class="text-sol-cyan mr-3">&#8226;</span>
                         <span><strong>HTTP:</strong> Kapseln Sie hier Ihre HTTP-Client-Bibliothek</span>
                     </li>
                     <li class="flex items-start">
-                        <span class="text-slate-400 mr-3">&#8226;</span>
+                        <span class="text-sol-cyan mr-3">&#8226;</span>
                         <span><strong>Logging:</strong> Einrichtung von Log-Levels</span>
                     </li>
                     <li class="flex items-start">
-                        <span class="text-slate-400 mr-3">&#8226;</span>
+                        <span class="text-sol-cyan mr-3">&#8226;</span>
                         <span><strong>Environment:</strong> Kapseln Sie Ihre ENVs, berechnen Sie URLs für das Backend</span>
                     </li>
                     <li class="flex items-start">
-                        <span class="text-slate-400 mr-3">&#8226;</span>
+                        <span class="text-sol-cyan mr-3">&#8226;</span>
                         <span><strong>I18N:</strong> Übersetzungslogik</span>
                     </li>
                     <li class="flex items-start">
-                        <span class="text-slate-400 mr-3">&#8226;</span>
+                        <span class="text-sol-cyan mr-3">&#8226;</span>
                         <span><strong>DateTime:</strong> Kapseln Sie externe Bibliotheken wie moment.js</span>
                     </li>
                     <li class="flex items-start">
-                        <span class="text-slate-400 mr-3">&#8226;</span>
+                        <span class="text-sol-cyan mr-3">&#8226;</span>
                         <span><strong>Routing:</strong> Kapseln Sie Standard-Routing in Methoden</span>
                     </li>
                 </ul>
@@ -252,25 +263,25 @@ export default PhoneNumberService;</code></pre>
 
             <!-- Global State Management -->
             <section class="mb-10">
-                <h2 class="text-2xl font-bold text-slate-800 mb-6 border-b-2 border-slate-200 pb-3">Globales State-Management</h2>
-                <p class="text-gray-700 leading-relaxed mb-4">
+                <h2 class="text-2xl font-bold text-sol-base01 mb-6 border-b-2 border-sol-base1 pb-3">Globales State-Management</h2>
+                <p class="text-sol-base00 leading-relaxed mb-4">
                     Wenn Sie eine mittelgroße React-App ohne Besonderheiten haben, sollten Sie mit der Context-API auskommen, die mit React mitgeliefert wird. Wichtige Überlegungen:
                 </p>
-                <ul class="space-y-2 text-gray-700 ml-6 mb-4">
+                <ul class="space-y-2 text-sol-base00 ml-6 mb-4">
                     <li class="flex items-start">
-                        <span class="text-slate-400 mr-3">&#8226;</span>
+                        <span class="text-sol-cyan mr-3">&#8226;</span>
                         <span>Sie können Context von überall nutzen, solange Sie Ihre Service-Methoden als Hooks strukturieren</span>
                     </li>
                     <li class="flex items-start">
-                        <span class="text-slate-400 mr-3">&#8226;</span>
+                        <span class="text-sol-cyan mr-3">&#8226;</span>
                         <span>Wenn eine Service-Methode kein Hook sein muss, machen Sie sie zu einer einfachen Funktion — das macht die Nutzung flexibler und einfacher</span>
                     </li>
                     <li class="flex items-start">
-                        <span class="text-slate-400 mr-3">&#8226;</span>
+                        <span class="text-sol-cyan mr-3">&#8226;</span>
                         <span>Idealerweise halten Sie Ihren Context nur in der Business-UI-Domain und Business-Domain, obwohl das nicht immer möglich ist</span>
                     </li>
                     <li class="flex items-start">
-                        <span class="text-slate-400 mr-3">&#8226;</span>
+                        <span class="text-sol-cyan mr-3">&#8226;</span>
                         <span>Ich habe komplette Projekte mit dieser Architektur abgeschlossen und dabei globalen State vollständig vermieden — versuchen Sie, die Einführung von globalem State so lange wie möglich hinauszuzögern</span>
                     </li>
                 </ul>
@@ -278,29 +289,29 @@ export default PhoneNumberService;</code></pre>
 
             <!-- Directed Dependency Flow -->
             <section class="mb-10">
-                <h2 class="text-2xl font-bold text-slate-800 mb-6 border-b-2 border-slate-200 pb-3">Gerichteter Abhängigkeitsfluss</h2>
-                <p class="text-gray-700 leading-relaxed mb-4">
+                <h2 class="text-2xl font-bold text-sol-base01 mb-6 border-b-2 border-sol-base1 pb-3">Gerichteter Abhängigkeitsfluss</h2>
+                <p class="text-sol-base00 leading-relaxed mb-4">
                     Abhängigkeiten fließen hauptsächlich unidirektional, von oben nach unten, ähnlich wie bei Backend-Architekturen. Tech-Services wissen nichts über die UI- und Business-Domain. Die Business-Domain holt sich, was sie aus dem System braucht, und referenziert Tech-Services von allen Ebenen, immer in eine Richtung.
                 </p>
-                <p class="text-gray-700 leading-relaxed">
+                <p class="text-sol-base00 leading-relaxed">
                     Tech-Services können andere Tech-Services referenzieren (zum Beispiel kann der HTTP-Service den EnvService referenzieren, um die benötigte URL herauszufinden). Tech-Services dürfen jedoch niemals höhere Schichten wie Business oder UI referenzieren. Insbesondere ist es verboten, Objekte aus verschiedenen Schichten in Methodensignaturen zu vermischen, wie etwa HTTP-domänenspezifische Objekttypen an andere Domänen zu übergeben.
                 </p>
             </section>
 
             <!-- Service Objects -->
             <section class="mb-10">
-                <h2 class="text-2xl font-bold text-slate-800 mb-6 border-b-2 border-slate-200 pb-3">Das Service-Objekt-Muster</h2>
-                <p class="text-gray-700 leading-relaxed mb-6">
+                <h2 class="text-2xl font-bold text-sol-base01 mb-6 border-b-2 border-sol-base1 pb-3">Das Service-Objekt-Muster</h2>
+                <p class="text-sol-base00 leading-relaxed mb-6">
                     Eine Sache, die mich in JavaScript-Projekten überrascht hat, ist der nachlässige Umgang mit Methoden-Sichtbarkeit — alles wird exportiert, jede Variable und jede Methode. Zusätzlich werden diese Exporte meist in einzelnen Dateien platziert! Sie verschmutzen nicht nur den Code-Namespace, sondern haben auch Tausende einzelner Dateien!
                 </p>
-                <p class="text-gray-700 leading-relaxed mb-6">
+                <p class="text-sol-base00 leading-relaxed mb-6">
                     Ich verstehe die ursprüngliche Motivation: Tree-Shaking. Das ist in Ordnung, wenn Sie lodash importieren und nur eine einzelne Methode davon nutzen wollen. Aber warum würden Sie Ihre eigenen Methoden tree-shaken wollen, wenn Ihr Service nur 5 davon hat? Wird ein bisschen Tree-Shaking Ihrer eigenen Methoden Ihre Bundle-Größe so stark reduzieren, dass es rechtfertigt, Ihr gesamtes Repo so zu bauen? Ich denke wirklich nicht — das ist nicht, wo Sie Ihre Bundles optimieren sollten.
                 </p>
 
                 <!-- Code Example -->
-                <div class="bg-slate-900 rounded-lg p-6 overflow-x-auto mb-6">
-                    <p class="text-slate-400 text-sm mb-4">Beispiel: Service-Objekt-Muster</p>
-                    <pre class="text-sm text-slate-100"><code>export interface MyDomainType {
+                <div class="bg-sol-base02 rounded-lg p-6 overflow-x-auto mb-6">
+                    <p class="text-sol-base1 text-sm mb-4">Beispiel: Service-Objekt-Muster</p>
+                    <pre class="text-sm text-sol-base1"><code>export interface MyDomainType {
   someAttrib: string;
 }
 
@@ -321,26 +332,26 @@ export const MyDomainService = {
 export default MyDomainService;</code></pre>
                 </div>
 
-                <h4 class="font-semibold text-slate-800 mb-3">Vorteile des Service-Objekt-Musters:</h4>
-                <ul class="space-y-2 text-gray-700">
+                <h4 class="font-semibold text-sol-base01 mb-3">Vorteile des Service-Objekt-Musters:</h4>
+                <ul class="space-y-2 text-sol-base00">
                     <li class="flex items-start">
-                        <span class="text-green-500 mr-3">&#10003;</span>
+                        <span class="text-sol-green mr-3">&#10003;</span>
                         <span>Klare private und öffentliche Sichtbarkeit mit Kapselung</span>
                     </li>
                     <li class="flex items-start">
-                        <span class="text-green-500 mr-3">&#10003;</span>
+                        <span class="text-sol-green mr-3">&#10003;</span>
                         <span>Namespace und Lesbarkeit beim Aufrufen Ihrer Methoden</span>
                     </li>
                     <li class="flex items-start">
-                        <span class="text-green-500 mr-3">&#10003;</span>
+                        <span class="text-sol-green mr-3">&#10003;</span>
                         <span>Einfache Auto-Vervollständigung durch Eingabe des Service-Namens</span>
                     </li>
                     <li class="flex items-start">
-                        <span class="text-green-500 mr-3">&#10003;</span>
+                        <span class="text-sol-green mr-3">&#10003;</span>
                         <span>Leichtere Logik-Wiederverwendung und Erkennung von Wiederholungen</span>
                     </li>
                     <li class="flex items-start">
-                        <span class="text-green-500 mr-3">&#10003;</span>
+                        <span class="text-sol-green mr-3">&#10003;</span>
                         <span>Klarer Ort für andere Teammitglieder, um geschriebene Logik zu finden</span>
                     </li>
                 </ul>
@@ -348,54 +359,54 @@ export default MyDomainService;</code></pre>
 
             <!-- Advantages -->
             <section class="mb-10">
-                <h2 class="text-2xl font-bold text-slate-800 mb-6 border-b-2 border-slate-200 pb-3">Vorteile dieser Architektur</h2>
+                <h2 class="text-2xl font-bold text-sol-base01 mb-6 border-b-2 border-sol-base1 pb-3">Vorteile dieser Architektur</h2>
                 <div class="space-y-6">
-                    <div class="border-l-4 border-slate-400 pl-4">
-                        <h4 class="font-semibold text-slate-800">Pragmatisch</h4>
-                        <p class="text-gray-600 text-sm">Aus meinen 20 Jahren Erfahrung ist dies ein perfektes Gleichgewicht zwischen einer puristischen Architektur und keiner Architektur. Sie können die sauberste Architektur haben, aber werden Sie sie in einem realistischen Projekt beibehalten können? Werden Ihre Junior-Teammitglieder sie klar verstehen? Wir brauchen ein Gleichgewicht zwischen Theorie und praktischer Anwendung.</p>
+                    <div class="border-l-4 border-sol-cyan pl-4">
+                        <h4 class="font-semibold text-sol-base01">Pragmatisch</h4>
+                        <p class="text-sol-base00 text-sm">Aus meinen 20 Jahren Erfahrung ist dies ein perfektes Gleichgewicht zwischen einer puristischen Architektur und keiner Architektur. Sie können die sauberste Architektur haben, aber werden Sie sie in einem realistischen Projekt beibehalten können? Werden Ihre Junior-Teammitglieder sie klar verstehen? Wir brauchen ein Gleichgewicht zwischen Theorie und praktischer Anwendung.</p>
                     </div>
-                    <div class="border-l-4 border-slate-400 pl-4">
-                        <h4 class="font-semibold text-slate-800">Einfach einzuführen</h4>
-                        <p class="text-gray-600 text-sm">Zeigen Sie dem Team die Theorie und wenden Sie sie an, wenn alle zustimmen. Keine Notwendigkeit, das ganze Projekt umzustrukturieren — es kann inkrementell und nur für neue Features geschehen, weil es keine Menge Konventionen oder ausgefallene Ordnerstrukturen hat.</p>
+                    <div class="border-l-4 border-sol-cyan pl-4">
+                        <h4 class="font-semibold text-sol-base01">Einfach einzuführen</h4>
+                        <p class="text-sol-base00 text-sm">Zeigen Sie dem Team die Theorie und wenden Sie sie an, wenn alle zustimmen. Keine Notwendigkeit, das ganze Projekt umzustrukturieren — es kann inkrementell und nur für neue Features geschehen, weil es keine Menge Konventionen oder ausgefallene Ordnerstrukturen hat.</p>
                     </div>
-                    <div class="border-l-4 border-slate-400 pl-4">
-                        <h4 class="font-semibold text-slate-800">Backend-Best-Practices</h4>
-                        <p class="text-gray-600 text-sm">Es ist einer Spring-Backend-Architektur sehr ähnlich. Viele Backend-Entwickler werden sich mit diesem Ansatz wohl fühlen, da dies das ist, was sie meistens tun.</p>
+                    <div class="border-l-4 border-sol-cyan pl-4">
+                        <h4 class="font-semibold text-sol-base01">Backend-Best-Practices</h4>
+                        <p class="text-sol-base00 text-sm">Es ist einer Spring-Backend-Architektur sehr ähnlich. Viele Backend-Entwickler werden sich mit diesem Ansatz wohl fühlen, da dies das ist, was sie meistens tun.</p>
                     </div>
-                    <div class="border-l-4 border-slate-400 pl-4">
-                        <h4 class="font-semibold text-slate-800">Logik an einem Ort</h4>
-                        <p class="text-gray-600 text-sm">Hatten Sie jemals das Gefühl, dass kein zentraler Ort für einen bestimmten Logiktyp existiert? Der Domain-Ansatz zwingt Entwickler, Logiktypen an den richtigen Ort zu schieben.</p>
+                    <div class="border-l-4 border-sol-cyan pl-4">
+                        <h4 class="font-semibold text-sol-base01">Logik an einem Ort</h4>
+                        <p class="text-sol-base00 text-sm">Hatten Sie jemals das Gefühl, dass kein zentraler Ort für einen bestimmten Logiktyp existiert? Der Domain-Ansatz zwingt Entwickler, Logiktypen an den richtigen Ort zu schieben.</p>
                     </div>
-                    <div class="border-l-4 border-slate-400 pl-4">
-                        <h4 class="font-semibold text-slate-800">Domain-Namespaces</h4>
-                        <p class="text-gray-600 text-sm">Das JS-Ökosystem ist bekannt dafür, viele einzelne Funktionen in den globalen Namespace zu exportieren. Mit dieser Architektur können Sie einfach einen Service-Namen wie "UserService." eingeben und die Auto-Vervollständigung Ihrer IDE nutzen. Die Regel lautet: "Nicht lesen, nur Auto-Vervollständigung nutzen."</p>
+                    <div class="border-l-4 border-sol-cyan pl-4">
+                        <h4 class="font-semibold text-sol-base01">Domain-Namespaces</h4>
+                        <p class="text-sol-base00 text-sm">Das JS-Ökosystem ist bekannt dafür, viele einzelne Funktionen in den globalen Namespace zu exportieren. Mit dieser Architektur können Sie einfach einen Service-Namen wie "UserService." eingeben und die Auto-Vervollständigung Ihrer IDE nutzen. Die Regel lautet: "Nicht lesen, nur Auto-Vervollständigung nutzen."</p>
                     </div>
-                    <div class="border-l-4 border-slate-400 pl-4">
-                        <h4 class="font-semibold text-slate-800">Keine anderen Muster</h4>
-                        <p class="text-gray-600 text-sm">Vergessen Sie jede Diskussion über Helpers, Utils oder APIs. Es ist einfach "YourSomethingService." Es gibt Ihrer Logik ihren Aufgabenbereich und kann leicht von anderen gefunden werden. Das Team einigt sich auf ein Hauptmuster, das für die meisten Situationen gut funktioniert.</p>
+                    <div class="border-l-4 border-sol-cyan pl-4">
+                        <h4 class="font-semibold text-sol-base01">Keine anderen Muster</h4>
+                        <p class="text-sol-base00 text-sm">Vergessen Sie jede Diskussion über Helpers, Utils oder APIs. Es ist einfach "YourSomethingService." Es gibt Ihrer Logik ihren Aufgabenbereich und kann leicht von anderen gefunden werden. Das Team einigt sich auf ein Hauptmuster, das für die meisten Situationen gut funktioniert.</p>
                     </div>
-                    <div class="border-l-4 border-slate-400 pl-4">
-                        <h4 class="font-semibold text-slate-800">React-freundlich</h4>
-                        <p class="text-gray-600 text-sm">Mit Hooks bis hinunter zu den Tech-Services können Sie immer die globale Context-API nutzen, um State zu lesen oder zu schreiben, wenn dies in Ihrer Architektur benötigt wird.</p>
+                    <div class="border-l-4 border-sol-cyan pl-4">
+                        <h4 class="font-semibold text-sol-base01">React-freundlich</h4>
+                        <p class="text-sol-base00 text-sm">Mit Hooks bis hinunter zu den Tech-Services können Sie immer die globale Context-API nutzen, um State zu lesen oder zu schreiben, wenn dies in Ihrer Architektur benötigt wird.</p>
                     </div>
-                    <div class="border-l-4 border-slate-400 pl-4">
-                        <h4 class="font-semibold text-slate-800">Kapselung externer Bibliotheken</h4>
-                        <p class="text-gray-600 text-sm">Jede externe Bibliothek wird in einem entsprechenden Service platziert. Auch globale Browser-Objekte wie localStorage, window und Events werden in einem Service platziert und abstrahiert.</p>
+                    <div class="border-l-4 border-sol-cyan pl-4">
+                        <h4 class="font-semibold text-sol-base01">Kapselung externer Bibliotheken</h4>
+                        <p class="text-sol-base00 text-sm">Jede externe Bibliothek wird in einem entsprechenden Service platziert. Auch globale Browser-Objekte wie localStorage, window und Events werden in einem Service platziert und abstrahiert.</p>
                     </div>
-                    <div class="border-l-4 border-slate-400 pl-4">
-                        <h4 class="font-semibold text-slate-800">Test-freundlich</h4>
-                        <p class="text-gray-600 text-sm">Durch die Trennung Ihrer App in Schichten und Services wird sie sehr test-freundlich. In meinen Tests rufe ich dieselben Infrastruktur-Services wie EnvService oder InitializationService auf, die auch in der App verwendet werden.</p>
+                    <div class="border-l-4 border-sol-cyan pl-4">
+                        <h4 class="font-semibold text-sol-base01">Test-freundlich</h4>
+                        <p class="text-sol-base00 text-sm">Durch die Trennung Ihrer App in Schichten und Services wird sie sehr test-freundlich. In meinen Tests rufe ich dieselben Infrastruktur-Services wie EnvService oder InitializationService auf, die auch in der App verwendet werden.</p>
                     </div>
                 </div>
             </section>
 
             <!-- Final Thoughts -->
             <section>
-                <h2 class="text-2xl font-bold text-slate-800 mb-6 border-b-2 border-slate-200 pb-3">Fazit</h2>
-                <p class="text-gray-700 leading-relaxed mb-6">
+                <h2 class="text-2xl font-bold text-sol-base01 mb-6 border-b-2 border-sol-base1 pb-3">Fazit</h2>
+                <p class="text-sol-base00 leading-relaxed mb-6">
                     Diese Architektur ist nicht puristisch — es gibt puristischere Ansätze. Aber jede Architektur bringt ihre Kosten mit sich. Mit dieser Architektur habe ich versucht, ein perfektes Gleichgewicht zwischen Einfachheit, Domain-Driven-Design-Ideen und einem puristischeren Ansatz wie der CLEAN-Architektur zu schaffen.
                 </p>
-                <p class="text-gray-700 leading-relaxed italic">
+                <p class="text-sol-base00 leading-relaxed italic">
                     Ich werde eine puristischere Architektur (CLEAN) in meinem nächsten Blogbeitrag diskutieren...
                 </p>
             </section>
@@ -403,7 +414,7 @@ export default MyDomainService;</code></pre>
         </article>
     </main>
 
-    <footer class="bg-slate-800 text-slate-400 text-center py-6 mt-12">
+    <footer class="bg-sol-base2 text-sol-base01 text-center py-6 mt-12 border-t border-sol-base1">
         <p>&copy; 2025 Denis Lutz. Alle Rechte vorbehalten.</p>
     </footer>
 </body>

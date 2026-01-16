@@ -5,113 +5,141 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Termingenie - Denis Lutz</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        sol: {
+                            base03: '#002b36',
+                            base02: '#073642',
+                            base01: '#586e75',
+                            base00: '#657b83',
+                            base0: '#839496',
+                            base1: '#93a1a1',
+                            base2: '#eee8d5',
+                            base3: '#fdf6e3',
+                            yellow: '#b58900',
+                            orange: '#cb4b16',
+                            red: '#dc322f',
+                            magenta: '#d33682',
+                            violet: '#6c71c4',
+                            blue: '#268bd2',
+                            cyan: '#2aa198',
+                            green: '#859900',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-sol-base3 text-sol-base00">
     <!-- Language Switcher -->
-    <nav class="bg-slate-900 text-white py-2">
+    <nav class="bg-sol-base2 text-sol-base01 py-2 border-b border-sol-base1">
         <div class="max-w-4xl mx-auto px-6 flex justify-between text-sm">
-            <a href="../" class="hover:text-slate-300">&larr; Zurück zur Startseite</a>
+            <a href="../" class="hover:text-sol-blue">&larr; Zurück zur Startseite</a>
             <div class="flex gap-4">
-                <a href="../../en/articles/termingenie-appointment-genius.html" class="hover:text-slate-300">EN</a>
-                <span class="text-slate-300">DE</span>
+                <a href="../../en/articles/termingenie-appointment-genius.html" class="hover:text-sol-blue">EN</a>
+                <span class="text-sol-base01 font-semibold">DE</span>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <header class="bg-gradient-to-br from-slate-900 to-slate-700 text-white py-16">
+    <header class="bg-sol-base2 text-sol-base01 py-16 border-b border-sol-base1">
         <div class="max-w-4xl mx-auto px-6">
-            <h1 class="text-4xl font-bold mb-4">Termingenie</h1>
-            <p class="text-slate-300">Ein SaaS-Startup für Online-Terminbuchung (2011-2020)</p>
+            <h1 class="text-4xl font-bold mb-4 text-sol-base02">Termingenie</h1>
+            <p class="text-sol-base00">Ein SaaS-Startup für Online-Terminbuchung (2011-2020)</p>
         </div>
     </header>
 
     <main class="max-w-4xl mx-auto px-6 py-12">
-        <article class="bg-white rounded-lg shadow-md p-8">
+        <article class="bg-sol-base3 rounded-lg shadow-md p-8 border border-sol-base1">
 
             <!-- Introduction -->
             <section class="mb-10">
-                <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                <p class="text-lg text-sol-base00 leading-relaxed mb-6">
                     Im Jahr 2011 habe ich ein kleines Unternehmen rund um ein Produkt für den deutschsprachigen Markt gegründet. Das Ziel war es, eine Software-as-a-Service (SaaS) Plattform zu schaffen, die mittelständischen Unternehmen Online-Terminbuchung ermöglicht.
                 </p>
-                <p class="text-gray-700 leading-relaxed">
+                <p class="text-sol-base00 leading-relaxed">
                     <strong>"Termingenie"</strong> — der Name ist Programm.
                 </p>
             </section>
 
             <!-- Product Overview -->
             <section class="mb-10">
-                <h2 class="text-2xl font-bold text-slate-800 mb-6 border-b-2 border-slate-200 pb-3">Das Produkt</h2>
-                <div class="bg-slate-100 rounded-lg p-6 my-6">
+                <h2 class="text-2xl font-bold text-sol-base01 mb-6 border-b-2 border-sol-base1 pb-3">Das Produkt</h2>
+                <div class="bg-sol-base2 rounded-lg p-6 my-6">
                     <div class="grid md:grid-cols-3 gap-4 text-center">
-                        <div class="bg-white rounded-lg p-4 border border-slate-200">
-                            <div class="text-3xl font-bold text-blue-600 mb-2">80+</div>
-                            <p class="text-gray-600 text-sm">Produktive Firmenkunden</p>
+                        <div class="bg-sol-base3 rounded-lg p-4 border border-sol-base1">
+                            <div class="text-3xl font-bold text-sol-blue mb-2">80+</div>
+                            <p class="text-sol-base00 text-sm">Produktive Firmenkunden</p>
                         </div>
-                        <div class="bg-white rounded-lg p-4 border border-slate-200">
-                            <div class="text-3xl font-bold text-green-600 mb-2">2011</div>
-                            <p class="text-gray-600 text-sm">Gegründet</p>
+                        <div class="bg-sol-base3 rounded-lg p-4 border border-sol-base1">
+                            <div class="text-3xl font-bold text-sol-green mb-2">2011</div>
+                            <p class="text-sol-base00 text-sm">Gegründet</p>
                         </div>
-                        <div class="bg-white rounded-lg p-4 border border-slate-200">
-                            <div class="text-3xl font-bold text-purple-600 mb-2">Rails</div>
-                            <p class="text-gray-600 text-sm">Entwickelt mit Ruby on Rails</p>
+                        <div class="bg-sol-base3 rounded-lg p-4 border border-sol-base1">
+                            <div class="text-3xl font-bold text-sol-violet mb-2">Rails</div>
+                            <p class="text-sol-base00 text-sm">Entwickelt mit Ruby on Rails</p>
                         </div>
                     </div>
                 </div>
-                <p class="text-gray-700 leading-relaxed">
+                <p class="text-sol-base00 leading-relaxed">
                     Termingenie wurde mit Ruby on Rails entwickelt. Ich war Architekt und Manager hinter der gesamten Anwendung und verantwortete sowohl die technische Entwicklung als auch den Geschäftsbetrieb.
                 </p>
             </section>
 
             <!-- My Role -->
             <section class="mb-10">
-                <h2 class="text-2xl font-bold text-slate-800 mb-6 border-b-2 border-slate-200 pb-3">Meine Rolle</h2>
+                <h2 class="text-2xl font-bold text-sol-base01 mb-6 border-b-2 border-sol-base1 pb-3">Meine Rolle</h2>
                 <div class="space-y-4">
-                    <div class="border-l-4 border-blue-500 pl-4">
-                        <h4 class="font-semibold text-slate-800">Gründer & Manager</h4>
-                        <p class="text-gray-600 text-sm">Habe das Unternehmen von Grund auf aufgebaut und alle Geschäftsabläufe geleitet</p>
+                    <div class="border-l-4 border-sol-blue pl-4">
+                        <h4 class="font-semibold text-sol-base01">Gründer & Manager</h4>
+                        <p class="text-sol-base00 text-sm">Habe das Unternehmen von Grund auf aufgebaut und alle Geschäftsabläufe geleitet</p>
                     </div>
-                    <div class="border-l-4 border-blue-500 pl-4">
-                        <h4 class="font-semibold text-slate-800">Software-Architekt</h4>
-                        <p class="text-gray-600 text-sm">Habe die technische Architektur der gesamten Plattform entworfen und überwacht</p>
+                    <div class="border-l-4 border-sol-blue pl-4">
+                        <h4 class="font-semibold text-sol-base01">Software-Architekt</h4>
+                        <p class="text-sol-base00 text-sm">Habe die technische Architektur der gesamten Plattform entworfen und überwacht</p>
                     </div>
-                    <div class="border-l-4 border-blue-500 pl-4">
-                        <h4 class="font-semibold text-slate-800">Teamleiter</h4>
-                        <p class="text-gray-600 text-sm">Habe Auftragnehmer für Implementierung und Marketing eingestellt und koordiniert</p>
+                    <div class="border-l-4 border-sol-blue pl-4">
+                        <h4 class="font-semibold text-sol-base01">Teamleiter</h4>
+                        <p class="text-sol-base00 text-sm">Habe Auftragnehmer für Implementierung und Marketing eingestellt und koordiniert</p>
                     </div>
                 </div>
             </section>
 
             <!-- Timeline -->
             <section class="mb-10">
-                <h2 class="text-2xl font-bold text-slate-800 mb-6 border-b-2 border-slate-200 pb-3">Zeitstrahl</h2>
+                <h2 class="text-2xl font-bold text-sol-base01 mb-6 border-b-2 border-sol-base1 pb-3">Zeitstrahl</h2>
                 <div class="space-y-4">
                     <div class="flex items-start">
-                        <div class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-4 flex-shrink-0">1</div>
+                        <div class="bg-sol-green text-sol-base3 rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-4 flex-shrink-0">1</div>
                         <div>
-                            <h4 class="font-semibold text-slate-800">2011 - Start</h4>
-                            <p class="text-gray-600 text-sm">Gründung des Unternehmens und Beginn der Entwicklung der SaaS-Plattform</p>
+                            <h4 class="font-semibold text-sol-base01">2011 - Start</h4>
+                            <p class="text-sol-base00 text-sm">Gründung des Unternehmens und Beginn der Entwicklung der SaaS-Plattform</p>
                         </div>
                     </div>
                     <div class="flex items-start">
-                        <div class="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-4 flex-shrink-0">2</div>
+                        <div class="bg-sol-blue text-sol-base3 rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-4 flex-shrink-0">2</div>
                         <div>
-                            <h4 class="font-semibold text-slate-800">2011-2017 - Wachstum</h4>
-                            <p class="text-gray-600 text-sm">Ausbau der Plattform auf 80 produktive Firmenkunden</p>
+                            <h4 class="font-semibold text-sol-base01">2011-2017 - Wachstum</h4>
+                            <p class="text-sol-base00 text-sm">Ausbau der Plattform auf 80 produktive Firmenkunden</p>
                         </div>
                     </div>
                     <div class="flex items-start">
-                        <div class="bg-orange-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-4 flex-shrink-0">3</div>
+                        <div class="bg-sol-orange text-sol-base3 rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-4 flex-shrink-0">3</div>
                         <div>
-                            <h4 class="font-semibold text-slate-800">2017 - Entwicklung pausiert</h4>
-                            <p class="text-gray-600 text-sm">Aktive Entwicklung aufgrund wirtschaftlicher Faktoren und Marktkonkurrenz eingestellt</p>
+                            <h4 class="font-semibold text-sol-base01">2017 - Entwicklung pausiert</h4>
+                            <p class="text-sol-base00 text-sm">Aktive Entwicklung aufgrund wirtschaftlicher Faktoren und Marktkonkurrenz eingestellt</p>
                         </div>
                     </div>
                     <div class="flex items-start">
-                        <div class="bg-slate-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-4 flex-shrink-0">4</div>
+                        <div class="bg-sol-base01 text-sol-base3 rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-4 flex-shrink-0">4</div>
                         <div>
-                            <h4 class="font-semibold text-slate-800">2020 - Dienst eingestellt</h4>
-                            <p class="text-gray-600 text-sm">Vollständige Abschaltung des Dienstes</p>
+                            <h4 class="font-semibold text-sol-base01">2020 - Dienst eingestellt</h4>
+                            <p class="text-sol-base00 text-sm">Vollständige Abschaltung des Dienstes</p>
                         </div>
                     </div>
                 </div>
@@ -119,12 +147,12 @@
 
             <!-- Lessons Learned -->
             <section class="mb-10">
-                <h2 class="text-2xl font-bold text-slate-800 mb-6 border-b-2 border-slate-200 pb-3">Warum es endete</h2>
-                <p class="text-gray-700 leading-relaxed mb-4">
+                <h2 class="text-2xl font-bold text-sol-base01 mb-6 border-b-2 border-sol-base1 pb-3">Warum es endete</h2>
+                <p class="text-sol-base00 leading-relaxed mb-4">
                     Aufgrund wirtschaftlicher Faktoren und insbesondere wegen zu viel Konkurrenz in diesem Produktbereich habe ich die aktive Entwicklung um 2017 eingestellt und den Dienst 2020 vollständig geschlossen.
                 </p>
-                <div class="bg-slate-50 rounded-lg p-4">
-                    <p class="text-gray-600 text-sm italic">
+                <div class="bg-sol-base2 rounded-lg p-4">
+                    <p class="text-sol-base01 text-sm italic">
                         Der Markt für Terminbuchungen wurde zunehmend von gut finanzierten Wettbewerbern überflutet, was es für ein kleines, eigenfinanziertes Unternehmen schwierig machte, effektiv zu konkurrieren.
                     </p>
                 </div>
@@ -132,19 +160,19 @@
 
             <!-- Video Demo -->
             <section class="mb-10">
-                <h2 class="text-2xl font-bold text-slate-800 mb-6 border-b-2 border-slate-200 pb-3">Produkt-Demo</h2>
-                <p class="text-gray-700 leading-relaxed mb-4">
+                <h2 class="text-2xl font-bold text-sol-base01 mb-6 border-b-2 border-sol-base1 pb-3">Produkt-Demo</h2>
+                <p class="text-sol-base00 leading-relaxed mb-4">
                     Ich habe eine Videozusammenfassung über die Funktionen dieses Produkts aufgenommen.
                 </p>
-                <div class="bg-slate-100 rounded-lg p-8 text-center">
-                    <p class="text-gray-500 italic">Video-Demo auf Anfrage verfügbar</p>
+                <div class="bg-sol-base2 rounded-lg p-8 text-center">
+                    <p class="text-sol-base01 italic">Video-Demo auf Anfrage verfügbar</p>
                 </div>
             </section>
 
             <!-- Acknowledgments -->
             <section>
-                <h2 class="text-2xl font-bold text-slate-800 mb-6 border-b-2 border-slate-200 pb-3">Danksagungen</h2>
-                <p class="text-gray-700 leading-relaxed">
+                <h2 class="text-2xl font-bold text-sol-base01 mb-6 border-b-2 border-sol-base1 pb-3">Danksagungen</h2>
+                <p class="text-sol-base00 leading-relaxed">
                     Mehrere Auftragnehmer wurden für die Implementierung und Vermarktung dieses Produkts engagiert. Ich möchte ihre Namen anonym halten, aber ich danke ausdrücklich allen Teammitgliedern für ihre engagierte Arbeit über die Jahre.
                 </p>
             </section>
@@ -152,7 +180,7 @@
         </article>
     </main>
 
-    <footer class="bg-slate-800 text-slate-400 text-center py-6 mt-12">
+    <footer class="bg-sol-base2 text-sol-base01 text-center py-6 mt-12 border-t border-sol-base1">
         <p>&copy; 2025 Denis Lutz. Alle Rechte vorbehalten.</p>
     </footer>
 </body>

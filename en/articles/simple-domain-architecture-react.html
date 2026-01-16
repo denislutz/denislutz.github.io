@@ -5,74 +5,102 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simple Domain Architecture for React - Denis Lutz</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        sol: {
+                            base03: '#002b36',
+                            base02: '#073642',
+                            base01: '#586e75',
+                            base00: '#657b83',
+                            base0: '#839496',
+                            base1: '#93a1a1',
+                            base2: '#eee8d5',
+                            base3: '#fdf6e3',
+                            yellow: '#b58900',
+                            orange: '#cb4b16',
+                            red: '#dc322f',
+                            magenta: '#d33682',
+                            violet: '#6c71c4',
+                            blue: '#268bd2',
+                            cyan: '#2aa198',
+                            green: '#859900',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-sol-base3 text-sol-base00">
     <!-- Language Switcher -->
-    <nav class="bg-slate-900 text-white py-2">
+    <nav class="bg-sol-base2 text-sol-base01 py-2 border-b border-sol-base1">
         <div class="max-w-4xl mx-auto px-6 flex justify-between text-sm">
-            <a href="../" class="hover:text-slate-300">&larr; Back to Home</a>
+            <a href="../" class="hover:text-sol-blue">&larr; Back to Home</a>
             <div class="flex gap-4">
-                <span class="text-slate-300">EN</span>
-                <a href="../../de/articles/simple-domain-architecture-react.html" class="hover:text-slate-300">DE</a>
+                <span class="text-sol-base01 font-semibold">EN</span>
+                <a href="../../de/articles/simple-domain-architecture-react.html" class="hover:text-sol-blue">DE</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <header class="bg-gradient-to-br from-slate-900 to-slate-700 text-white py-16">
+    <header class="bg-sol-base2 text-sol-base01 py-16 border-b border-sol-base1">
         <div class="max-w-4xl mx-auto px-6">
-            <h1 class="text-4xl font-bold mb-4">Simple Domain Architecture for React</h1>
-            <p class="text-slate-300">A pragmatic approach to structuring React applications</p>
+            <h1 class="text-4xl font-bold mb-4 text-sol-base02">Simple Domain Architecture for React</h1>
+            <p class="text-sol-base00">A pragmatic approach to structuring React applications</p>
         </div>
     </header>
 
     <main class="max-w-4xl mx-auto px-6 py-12">
-        <article class="bg-white rounded-lg shadow-md p-8">
+        <article class="bg-sol-base3 rounded-lg shadow-md p-8 border border-sol-base1">
 
             <!-- Introduction -->
             <section class="mb-10">
-                <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                <p class="text-lg text-sol-base00 leading-relaxed mb-6">
                     "React.js - A JavaScript library for building user interfaces." From the title on React's homepage, we can clearly understand: React does not have a built-in architecture since it's not a framework, just a thin library.
                 </p>
-                <p class="text-gray-700 leading-relaxed mb-6">
+                <p class="text-sol-base00 leading-relaxed mb-6">
                     Before discussing the problems with the missing architecture in React, I want to reference the concept of "Domain-Driven Design."
                 </p>
-                <blockquote class="border-l-4 border-slate-400 pl-6 py-2 my-6 bg-slate-50 rounded-r">
-                    <p class="text-gray-600 italic">
+                <blockquote class="border-l-4 border-sol-base1 pl-6 py-2 my-6 bg-sol-base2 rounded-r">
+                    <p class="text-sol-base01 italic">
                         "Domain-Driven Design is an approach to software development that centers the development on programming a domain model that has a rich understanding of the processes and rules of a domain. The name comes from a 2003 book by Eric Evans that describes the approach through a catalog of patterns."
                     </p>
-                    <cite class="text-sm text-slate-500 mt-2 block">— Martin Fowler</cite>
+                    <cite class="text-sm text-sol-base00 mt-2 block">— Martin Fowler</cite>
                 </blockquote>
-                <p class="text-gray-700 leading-relaxed mb-6">
+                <p class="text-sol-base00 leading-relaxed mb-6">
                     In my practice, I refer to a domain when I talk about the area of expertise of a piece of code. It can be the business domain, like the banking domain in a fintech application. It can also be the technical domain, like HTTP logic handling, error handling, and configuration for REST communication.
                 </p>
-                <p class="text-gray-700 leading-relaxed">
+                <p class="text-sol-base00 leading-relaxed">
                     This abstraction makes it possible to avoid all the architectural patterns known in DDD and simply use the idea of code responsibility to a certain type of logic (the domain). With that in place, we can start a discussion about React.js architecture.
                 </p>
             </section>
 
             <!-- Signs of Missing Architecture -->
             <section class="mb-10">
-                <h2 class="text-2xl font-bold text-slate-800 mb-6 border-b-2 border-slate-200 pb-3">Signs of a Missing React Architecture</h2>
-                <ul class="space-y-4 text-gray-700">
+                <h2 class="text-2xl font-bold text-sol-base01 mb-6 border-b-2 border-sol-base1 pb-3">Signs of a Missing React Architecture</h2>
+                <ul class="space-y-4 text-sol-base00">
                     <li class="flex items-start">
-                        <span class="text-red-500 mr-3 mt-1">&#10007;</span>
+                        <span class="text-sol-red mr-3 mt-1">&#10007;</span>
                         <span>No separation between pure UI and domain-specific UI logic — you cannot extract your pure layout components for reuse across other projects in your company</span>
                     </li>
                     <li class="flex items-start">
-                        <span class="text-red-500 mr-3 mt-1">&#10007;</span>
+                        <span class="text-sol-red mr-3 mt-1">&#10007;</span>
                         <span>Following the smart and dumb components philosophy, the pure UI components are so dumb that they become difficult to use — countless functions are passed into the component without any default values, so you need to know everything about them just to use them</span>
                     </li>
                     <li class="flex items-start">
-                        <span class="text-red-500 mr-3 mt-1">&#10007;</span>
+                        <span class="text-sol-red mr-3 mt-1">&#10007;</span>
                         <span>New developers struggle to reuse logic because the entire codebase consists of single exported methods with abstract names — auto-completion is impossible without knowing the specific method names</span>
                     </li>
                     <li class="flex items-start">
-                        <span class="text-red-500 mr-3 mt-1">&#10007;</span>
+                        <span class="text-sol-red mr-3 mt-1">&#10007;</span>
                         <span>Architectural layers are mixed up — the highest view components directly handle HTTP response codes with no central place for unified error handling</span>
                     </li>
                     <li class="flex items-start">
-                        <span class="text-red-500 mr-3 mt-1">&#10007;</span>
+                        <span class="text-sol-red mr-3 mt-1">&#10007;</span>
                         <span>The concept of domain-specific logic does not exist — each feature randomly builds up its calculations directly in the "smart component," mixed with its own UI logic</span>
                     </li>
                 </ul>
@@ -80,78 +108,61 @@
 
             <!-- Historical Context -->
             <section class="mb-10">
-                <h2 class="text-2xl font-bold text-slate-800 mb-6 border-b-2 border-slate-200 pb-3">A Look Back at Architectural Freedom</h2>
-                <p class="text-gray-700 leading-relaxed mb-6">
+                <h2 class="text-2xl font-bold text-sol-base01 mb-6 border-b-2 border-sol-base1 pb-3">A Look Back at Architectural Freedom</h2>
+                <p class="text-sol-base00 leading-relaxed mb-6">
                     This is the result of architectural freedom. We had similar situations before opinionated frameworks came into play. I remember well when Ruby on Rails emerged around 2006. As a mainstream framework, it had a built-in architecture. All major startup products were written in Rails for almost a decade with great success. RoR achieved tremendous success because it provided direction, a complete out-of-the-box architecture, and a fully configured technical stack.
                 </p>
-                <p class="text-gray-700 leading-relaxed mb-6">
+                <p class="text-sol-base00 leading-relaxed mb-6">
                     So why are we abandoning those lessons learned?
                 </p>
-                <p class="text-gray-700 leading-relaxed">
+                <p class="text-sol-base00 leading-relaxed">
                     Solutions are on the way, though it's taking longer than it should. Angular, for example, does NOT have this issue — it has a built-in architecture. Frameworks like Next.js have also understood this problem and are building more opinions into their architecture. However, Next.js still lacks a domain-oriented approach — specifically, it's missing a separation into domain and technical services as part of the framework.
                 </p>
             </section>
 
             <!-- The Solution -->
             <section class="mb-10">
-                <h2 class="text-2xl font-bold text-slate-800 mb-6 border-b-2 border-slate-200 pb-3">The Simplified Domain Architecture</h2>
-                <p class="text-gray-700 leading-relaxed mb-6">
+                <h2 class="text-2xl font-bold text-sol-base01 mb-6 border-b-2 border-sol-base1 pb-3">The Simplified Domain Architecture</h2>
+                <p class="text-sol-base00 leading-relaxed mb-6">
                     Since no major domain orientation exists, you're better off addressing this topic and defining an architecture within your team that works for everyone. One architectural style that has worked well for me in many projects is what I call the <strong>"Simplified Domain Architecture."</strong>
                 </p>
 
-                <!-- Architecture Diagram Description -->
-                <div class="bg-slate-100 rounded-lg p-6 my-8">
-                    <div class="grid grid-cols-2 gap-4 text-center">
-                        <div class="bg-blue-100 border-2 border-blue-300 rounded-lg p-4">
-                            <h4 class="font-semibold text-blue-800">UI Plain Domain</h4>
-                            <p class="text-xs text-blue-600 mt-1">Reusable UI components</p>
-                        </div>
-                        <div class="bg-green-100 border-2 border-green-300 rounded-lg p-4">
-                            <h4 class="font-semibold text-green-800">UI Business Domain</h4>
-                            <p class="text-xs text-green-600 mt-1">Business-specific features</p>
-                        </div>
-                        <div class="bg-purple-100 border-2 border-purple-300 rounded-lg p-4">
-                            <h4 class="font-semibold text-purple-800">Service Business Domain</h4>
-                            <p class="text-xs text-purple-600 mt-1">Business logic & flows</p>
-                        </div>
-                        <div class="bg-orange-100 border-2 border-orange-300 rounded-lg p-4">
-                            <h4 class="font-semibold text-orange-800">Service Tech Domain</h4>
-                            <p class="text-xs text-orange-600 mt-1">Infrastructure services</p>
-                        </div>
-                    </div>
+                <!-- Architecture Diagram -->
+                <div class="my-8">
+                    <img src="../../img/SimpleDomainArchitec.png" alt="Simple Domain Architecture for React.js" class="w-full rounded-lg shadow-md border border-sol-base1">
                 </div>
             </section>
 
             <!-- UI Plain Domain -->
             <section class="mb-10">
-                <h3 class="text-xl font-bold text-slate-800 mb-4">UI Plain Domain</h3>
-                <p class="text-gray-700 leading-relaxed mb-4">
+                <h3 class="text-xl font-bold text-sol-base01 mb-4">UI Plain Domain</h3>
+                <p class="text-sol-base00 leading-relaxed mb-4">
                     This layer holds only UI components that are not bound to the business. Imagine writing another application and being able to just reuse your UI components: text fields, buttons, forms, and panels. UI plain components should be targeted as a shareable library for your entire corporation.
                 </p>
-                <p class="text-gray-700 leading-relaxed">
+                <p class="text-sol-base00 leading-relaxed">
                     A very elegant approach is provided by the <strong>nx.dev monorepo framework</strong>, where you can easily define shareable libraries. The plain UI domain should never reference any context API or domain services to remain fully shareable. Dependencies flow only into this layer, never out of it.
                 </p>
             </section>
 
             <!-- UI Business Domain -->
             <section class="mb-10">
-                <h3 class="text-xl font-bold text-slate-800 mb-4">UI Business Domain</h3>
-                <p class="text-gray-700 leading-relaxed">
+                <h3 class="text-xl font-bold text-sol-base01 mb-4">UI Business Domain</h3>
+                <p class="text-sol-base00 leading-relaxed">
                     This layer contains your business-oriented features. The UI business domain references mainly the plain UI and the business service domain to implement features. It can also reference some tech services — for example, a routing service is UI-related but can be considered a tech service since it's not domain-specific.
                 </p>
             </section>
 
             <!-- Service Business Domain -->
             <section class="mb-10">
-                <h3 class="text-xl font-bold text-slate-800 mb-4">Service Business Domain</h3>
-                <p class="text-gray-700 leading-relaxed mb-6">
+                <h3 class="text-xl font-bold text-sol-base01 mb-4">Service Business Domain</h3>
+                <p class="text-sol-base00 leading-relaxed mb-6">
                     These are your business-specific services. For a banking application, you would coordinate business flows and business logic here. The business domain uses tech services to execute its tasks and creates an abstraction over pure tech. A business service can decide on the right error handling before passing information to the UI. The UI has an easier life, plus you never repeat yourself since you consolidate logic for one business case in your business service.
                 </p>
 
                 <!-- Code Example -->
-                <div class="bg-slate-900 rounded-lg p-6 overflow-x-auto">
-                    <p class="text-slate-400 text-sm mb-4">Example: PhoneNumberService</p>
-                    <pre class="text-sm text-slate-100"><code>import parsePhoneNumber from "libphonenumber-js/max";
+                <div class="bg-sol-base02 rounded-lg p-6 overflow-x-auto">
+                    <p class="text-sol-base1 text-sm mb-4">Example: PhoneNumberService</p>
+                    <pre class="text-sm text-sol-base1"><code>import parsePhoneNumber from "libphonenumber-js/max";
 
 const DEFAULT_COUNTRY = "DE";
 const INVALID_NUMBER_MSG = "Your phone number is not valid.";
@@ -186,30 +197,30 @@ export default PhoneNumberService;</code></pre>
                 </div>
 
                 <div class="mt-6">
-                    <h4 class="font-semibold text-slate-800 mb-3">Key Benefits of This Pattern:</h4>
-                    <ul class="space-y-2 text-gray-700">
+                    <h4 class="font-semibold text-sol-base01 mb-3">Key Benefits of This Pattern:</h4>
+                    <ul class="space-y-2 text-sol-base00">
                         <li class="flex items-start">
-                            <span class="text-green-500 mr-3">&#10003;</span>
+                            <span class="text-sol-green mr-3">&#10003;</span>
                             <span>Clear encapsulation of private methods</span>
                         </li>
                         <li class="flex items-start">
-                            <span class="text-green-500 mr-3">&#10003;</span>
+                            <span class="text-sol-green mr-3">&#10003;</span>
                             <span>A clear API to the outside</span>
                         </li>
                         <li class="flex items-start">
-                            <span class="text-green-500 mr-3">&#10003;</span>
+                            <span class="text-sol-green mr-3">&#10003;</span>
                             <span>Encapsulation of external libraries</span>
                         </li>
                         <li class="flex items-start">
-                            <span class="text-green-500 mr-3">&#10003;</span>
+                            <span class="text-sol-green mr-3">&#10003;</span>
                             <span>Reuse of internal private methods</span>
                         </li>
                         <li class="flex items-start">
-                            <span class="text-green-500 mr-3">&#10003;</span>
+                            <span class="text-sol-green mr-3">&#10003;</span>
                             <span>Domain-specific validation messages</span>
                         </li>
                         <li class="flex items-start">
-                            <span class="text-green-500 mr-3">&#10003;</span>
+                            <span class="text-sol-green mr-3">&#10003;</span>
                             <span>Any UI component using it gets logic from a single place</span>
                         </li>
                     </ul>
@@ -218,33 +229,33 @@ export default PhoneNumberService;</code></pre>
 
             <!-- Service Tech Domain -->
             <section class="mb-10">
-                <h3 class="text-xl font-bold text-slate-800 mb-4">Service Tech Domain</h3>
-                <p class="text-gray-700 leading-relaxed mb-4">
+                <h3 class="text-xl font-bold text-sol-base01 mb-4">Service Tech Domain</h3>
+                <p class="text-sol-base00 leading-relaxed mb-4">
                     Everything that is not business can be seen as your tech service — it's also your app infrastructure. Typical examples include:
                 </p>
-                <ul class="space-y-2 text-gray-700 ml-6">
+                <ul class="space-y-2 text-sol-base00 ml-6">
                     <li class="flex items-start">
-                        <span class="text-slate-400 mr-3">&#8226;</span>
+                        <span class="text-sol-cyan mr-3">&#8226;</span>
                         <span><strong>HTTP:</strong> Wrap your HTTP client library here</span>
                     </li>
                     <li class="flex items-start">
-                        <span class="text-slate-400 mr-3">&#8226;</span>
+                        <span class="text-sol-cyan mr-3">&#8226;</span>
                         <span><strong>Logging:</strong> Setting up log levels</span>
                     </li>
                     <li class="flex items-start">
-                        <span class="text-slate-400 mr-3">&#8226;</span>
+                        <span class="text-sol-cyan mr-3">&#8226;</span>
                         <span><strong>Environment:</strong> Wrap your ENVs, calculate URLs for the backend</span>
                     </li>
                     <li class="flex items-start">
-                        <span class="text-slate-400 mr-3">&#8226;</span>
+                        <span class="text-sol-cyan mr-3">&#8226;</span>
                         <span><strong>I18N:</strong> Translation logic</span>
                     </li>
                     <li class="flex items-start">
-                        <span class="text-slate-400 mr-3">&#8226;</span>
+                        <span class="text-sol-cyan mr-3">&#8226;</span>
                         <span><strong>DateTime:</strong> Wrap external libraries like moment.js</span>
                     </li>
                     <li class="flex items-start">
-                        <span class="text-slate-400 mr-3">&#8226;</span>
+                        <span class="text-sol-cyan mr-3">&#8226;</span>
                         <span><strong>Routing:</strong> Wrap standard routing into methods</span>
                     </li>
                 </ul>
@@ -252,25 +263,25 @@ export default PhoneNumberService;</code></pre>
 
             <!-- Global State Management -->
             <section class="mb-10">
-                <h2 class="text-2xl font-bold text-slate-800 mb-6 border-b-2 border-slate-200 pb-3">Global State Management</h2>
-                <p class="text-gray-700 leading-relaxed mb-4">
+                <h2 class="text-2xl font-bold text-sol-base01 mb-6 border-b-2 border-sol-base1 pb-3">Global State Management</h2>
+                <p class="text-sol-base00 leading-relaxed mb-4">
                     If you have a mid-size React app with nothing special, you should be fine using just the Context API that comes out of the box with React. Important considerations:
                 </p>
-                <ul class="space-y-2 text-gray-700 ml-6 mb-4">
+                <ul class="space-y-2 text-sol-base00 ml-6 mb-4">
                     <li class="flex items-start">
-                        <span class="text-slate-400 mr-3">&#8226;</span>
+                        <span class="text-sol-cyan mr-3">&#8226;</span>
                         <span>You can use context from everywhere as long as you structure your service methods as hooks</span>
                     </li>
                     <li class="flex items-start">
-                        <span class="text-slate-400 mr-3">&#8226;</span>
+                        <span class="text-sol-cyan mr-3">&#8226;</span>
                         <span>If you don't need a service method to be a hook, make it a simple function — this makes usage more flexible and simpler</span>
                     </li>
                     <li class="flex items-start">
-                        <span class="text-slate-400 mr-3">&#8226;</span>
+                        <span class="text-sol-cyan mr-3">&#8226;</span>
                         <span>Ideally, keep your context only in the business UI domain and business domain, though this isn't always possible</span>
                     </li>
                     <li class="flex items-start">
-                        <span class="text-slate-400 mr-3">&#8226;</span>
+                        <span class="text-sol-cyan mr-3">&#8226;</span>
                         <span>I've completed entire projects with this architecture while completely avoiding global state — try to delay the introduction of global state as long as possible</span>
                     </li>
                 </ul>
@@ -278,29 +289,29 @@ export default PhoneNumberService;</code></pre>
 
             <!-- Directed Dependency Flow -->
             <section class="mb-10">
-                <h2 class="text-2xl font-bold text-slate-800 mb-6 border-b-2 border-slate-200 pb-3">Directed Dependency Flow</h2>
-                <p class="text-gray-700 leading-relaxed mb-4">
+                <h2 class="text-2xl font-bold text-sol-base01 mb-6 border-b-2 border-sol-base1 pb-3">Directed Dependency Flow</h2>
+                <p class="text-sol-base00 leading-relaxed mb-4">
                     Dependencies flow mostly unidirectional, top-down, similar to backend architectures. Tech services don't know about the UI and business domain. The business domain picks what it needs from the system and references tech services from all levels, always in one direction.
                 </p>
-                <p class="text-gray-700 leading-relaxed">
+                <p class="text-sol-base00 leading-relaxed">
                     Tech services can reference other tech services (for example, the HTTP service can reference the EnvService to figure out the URL it needs). However, tech services can never reference higher layers like business or UI. Specifically, it's forbidden to mix up objects from different layers in method signatures, such as passing HTTP domain-specific object types to other domains.
                 </p>
             </section>
 
             <!-- Service Objects -->
             <section class="mb-10">
-                <h2 class="text-2xl font-bold text-slate-800 mb-6 border-b-2 border-slate-200 pb-3">The Service Object Pattern</h2>
-                <p class="text-gray-700 leading-relaxed mb-6">
+                <h2 class="text-2xl font-bold text-sol-base01 mb-6 border-b-2 border-sol-base1 pb-3">The Service Object Pattern</h2>
+                <p class="text-sol-base00 leading-relaxed mb-6">
                     One thing that surprised me in JavaScript projects is the sloppy way of handling method visibility — everything is exported, any variable and any method. Additionally, these exports are mostly placed in single files! Not only do you pollute the code namespace, but you also end up with thousands of single files.
                 </p>
-                <p class="text-gray-700 leading-relaxed mb-6">
+                <p class="text-sol-base00 leading-relaxed mb-6">
                     I understand the original motivation: tree shaking. This is fine if you import lodash and just want to use a single method from it. But why would you want to tree shake your own methods if your service has just 5 of them? Will a little tree shaking of your own methods decrease your bundle size enough to justify building your whole repo that way? I really don't think so — this is not where you should be optimizing your bundles.
                 </p>
 
                 <!-- Code Example -->
-                <div class="bg-slate-900 rounded-lg p-6 overflow-x-auto mb-6">
-                    <p class="text-slate-400 text-sm mb-4">Example: Service Object Pattern</p>
-                    <pre class="text-sm text-slate-100"><code>export interface MyDomainType {
+                <div class="bg-sol-base02 rounded-lg p-6 overflow-x-auto mb-6">
+                    <p class="text-sol-base1 text-sm mb-4">Example: Service Object Pattern</p>
+                    <pre class="text-sm text-sol-base1"><code>export interface MyDomainType {
   someAttrib: string;
 }
 
@@ -321,26 +332,26 @@ export const MyDomainService = {
 export default MyDomainService;</code></pre>
                 </div>
 
-                <h4 class="font-semibold text-slate-800 mb-3">Advantages of the Service Object Pattern:</h4>
-                <ul class="space-y-2 text-gray-700">
+                <h4 class="font-semibold text-sol-base01 mb-3">Advantages of the Service Object Pattern:</h4>
+                <ul class="space-y-2 text-sol-base00">
                     <li class="flex items-start">
-                        <span class="text-green-500 mr-3">&#10003;</span>
+                        <span class="text-sol-green mr-3">&#10003;</span>
                         <span>Clear private and public visibility with encapsulation</span>
                     </li>
                     <li class="flex items-start">
-                        <span class="text-green-500 mr-3">&#10003;</span>
+                        <span class="text-sol-green mr-3">&#10003;</span>
                         <span>Namespace and readability when calling your methods</span>
                     </li>
                     <li class="flex items-start">
-                        <span class="text-green-500 mr-3">&#10003;</span>
+                        <span class="text-sol-green mr-3">&#10003;</span>
                         <span>Easy auto-completion by writing out the service name</span>
                     </li>
                     <li class="flex items-start">
-                        <span class="text-green-500 mr-3">&#10003;</span>
+                        <span class="text-sol-green mr-3">&#10003;</span>
                         <span>Easier logic reuse and recognition of repetition</span>
                     </li>
                     <li class="flex items-start">
-                        <span class="text-green-500 mr-3">&#10003;</span>
+                        <span class="text-sol-green mr-3">&#10003;</span>
                         <span>Clear place for other team members to look for written logic</span>
                     </li>
                 </ul>
@@ -348,54 +359,54 @@ export default MyDomainService;</code></pre>
 
             <!-- Advantages -->
             <section class="mb-10">
-                <h2 class="text-2xl font-bold text-slate-800 mb-6 border-b-2 border-slate-200 pb-3">Advantages of This Architecture</h2>
+                <h2 class="text-2xl font-bold text-sol-base01 mb-6 border-b-2 border-sol-base1 pb-3">Advantages of This Architecture</h2>
                 <div class="space-y-6">
-                    <div class="border-l-4 border-slate-400 pl-4">
-                        <h4 class="font-semibold text-slate-800">Pragmatic</h4>
-                        <p class="text-gray-600 text-sm">From my 20 years of experience, this is a perfect balance between a purist architecture and no architecture at all. You can have the cleanest architecture, but will you be able to maintain it in a realistic project? Will your junior team members clearly understand it? We need a balance of theory and practical application.</p>
+                    <div class="border-l-4 border-sol-cyan pl-4">
+                        <h4 class="font-semibold text-sol-base01">Pragmatic</h4>
+                        <p class="text-sol-base00 text-sm">From my 20 years of experience, this is a perfect balance between a purist architecture and no architecture at all. You can have the cleanest architecture, but will you be able to maintain it in a realistic project? Will your junior team members clearly understand it? We need a balance of theory and practical application.</p>
                     </div>
-                    <div class="border-l-4 border-slate-400 pl-4">
-                        <h4 class="font-semibold text-slate-800">Easy to Introduce</h4>
-                        <p class="text-gray-600 text-sm">Show the theory to a team and apply it if everyone agrees. No need to restructure the whole project — it can happen incrementally and only for new features, because it doesn't have a bunch of conventions or a fancy folder structure.</p>
+                    <div class="border-l-4 border-sol-cyan pl-4">
+                        <h4 class="font-semibold text-sol-base01">Easy to Introduce</h4>
+                        <p class="text-sol-base00 text-sm">Show the theory to a team and apply it if everyone agrees. No need to restructure the whole project — it can happen incrementally and only for new features, because it doesn't have a bunch of conventions or a fancy folder structure.</p>
                     </div>
-                    <div class="border-l-4 border-slate-400 pl-4">
-                        <h4 class="font-semibold text-slate-800">Backend Best Practices</h4>
-                        <p class="text-gray-600 text-sm">It's very similar to a Spring backend architecture. Many backend developers will feel comfortable with this approach since this is what they mostly do.</p>
+                    <div class="border-l-4 border-sol-cyan pl-4">
+                        <h4 class="font-semibold text-sol-base01">Backend Best Practices</h4>
+                        <p class="text-sol-base00 text-sm">It's very similar to a Spring backend architecture. Many backend developers will feel comfortable with this approach since this is what they mostly do.</p>
                     </div>
-                    <div class="border-l-4 border-slate-400 pl-4">
-                        <h4 class="font-semibold text-slate-800">Logic in a Single Place</h4>
-                        <p class="text-gray-600 text-sm">Have you ever had the feeling that no central place exists for some type of logic? The domain approach forces developers to push logic types to the right place.</p>
+                    <div class="border-l-4 border-sol-cyan pl-4">
+                        <h4 class="font-semibold text-sol-base01">Logic in a Single Place</h4>
+                        <p class="text-sol-base00 text-sm">Have you ever had the feeling that no central place exists for some type of logic? The domain approach forces developers to push logic types to the right place.</p>
                     </div>
-                    <div class="border-l-4 border-slate-400 pl-4">
-                        <h4 class="font-semibold text-slate-800">Domain Namespaces</h4>
-                        <p class="text-gray-600 text-sm">The JS ecosystem is known for exporting many single functions to the global namespace. With this architecture, you can easily write out a service name like "UserService." and use your IDE's auto-completion. The rule is: "don't read, just auto-complete."</p>
+                    <div class="border-l-4 border-sol-cyan pl-4">
+                        <h4 class="font-semibold text-sol-base01">Domain Namespaces</h4>
+                        <p class="text-sol-base00 text-sm">The JS ecosystem is known for exporting many single functions to the global namespace. With this architecture, you can easily write out a service name like "UserService." and use your IDE's auto-completion. The rule is: "don't read, just auto-complete."</p>
                     </div>
-                    <div class="border-l-4 border-slate-400 pl-4">
-                        <h4 class="font-semibold text-slate-800">No Other Patterns</h4>
-                        <p class="text-gray-600 text-sm">Forget any discussion about helpers, utils, or APIs. It's just "YourSomethingService." It gives your logic its area of task and can be found easily by others. The team agrees on one main pattern that performs well for most situations.</p>
+                    <div class="border-l-4 border-sol-cyan pl-4">
+                        <h4 class="font-semibold text-sol-base01">No Other Patterns</h4>
+                        <p class="text-sol-base00 text-sm">Forget any discussion about helpers, utils, or APIs. It's just "YourSomethingService." It gives your logic its area of task and can be found easily by others. The team agrees on one main pattern that performs well for most situations.</p>
                     </div>
-                    <div class="border-l-4 border-slate-400 pl-4">
-                        <h4 class="font-semibold text-slate-800">React Friendly</h4>
-                        <p class="text-gray-600 text-sm">With hooks down to the tech services, you can always use the global Context API to consume or write to state if needed in your architecture.</p>
+                    <div class="border-l-4 border-sol-cyan pl-4">
+                        <h4 class="font-semibold text-sol-base01">React Friendly</h4>
+                        <p class="text-sol-base00 text-sm">With hooks down to the tech services, you can always use the global Context API to consume or write to state if needed in your architecture.</p>
                     </div>
-                    <div class="border-l-4 border-slate-400 pl-4">
-                        <h4 class="font-semibold text-slate-800">Encapsulation of External Libraries</h4>
-                        <p class="text-gray-600 text-sm">Any external library is placed into a corresponding service. Even global browser objects like localStorage, window, and events are placed into a service and abstracted away.</p>
+                    <div class="border-l-4 border-sol-cyan pl-4">
+                        <h4 class="font-semibold text-sol-base01">Encapsulation of External Libraries</h4>
+                        <p class="text-sol-base00 text-sm">Any external library is placed into a corresponding service. Even global browser objects like localStorage, window, and events are placed into a service and abstracted away.</p>
                     </div>
-                    <div class="border-l-4 border-slate-400 pl-4">
-                        <h4 class="font-semibold text-slate-800">Test Friendly</h4>
-                        <p class="text-gray-600 text-sm">By separating your app into layers and services, it becomes very test-friendly. In my tests, I call the same infrastructure services like EnvService or InitializationService that are used in the app.</p>
+                    <div class="border-l-4 border-sol-cyan pl-4">
+                        <h4 class="font-semibold text-sol-base01">Test Friendly</h4>
+                        <p class="text-sol-base00 text-sm">By separating your app into layers and services, it becomes very test-friendly. In my tests, I call the same infrastructure services like EnvService or InitializationService that are used in the app.</p>
                     </div>
                 </div>
             </section>
 
             <!-- Final Thoughts -->
             <section>
-                <h2 class="text-2xl font-bold text-slate-800 mb-6 border-b-2 border-slate-200 pb-3">Final Thoughts</h2>
-                <p class="text-gray-700 leading-relaxed mb-6">
+                <h2 class="text-2xl font-bold text-sol-base01 mb-6 border-b-2 border-sol-base1 pb-3">Final Thoughts</h2>
+                <p class="text-sol-base00 leading-relaxed mb-6">
                     This architecture is not purist — there are more purist approaches. But each architecture brings its costs with it. With this architecture, I tried to create a perfect balance between simplicity, domain-driven design ideas, and a more purist approach like CLEAN architecture.
                 </p>
-                <p class="text-gray-700 leading-relaxed italic">
+                <p class="text-sol-base00 leading-relaxed italic">
                     I will discuss a more purist architecture (CLEAN) in my next blog post...
                 </p>
             </section>
@@ -403,7 +414,7 @@ export default MyDomainService;</code></pre>
         </article>
     </main>
 
-    <footer class="bg-slate-800 text-slate-400 text-center py-6 mt-12">
+    <footer class="bg-sol-base2 text-sol-base01 text-center py-6 mt-12 border-t border-sol-base1">
         <p>&copy; 2025 Denis Lutz. All rights reserved.</p>
     </footer>
 </body>
