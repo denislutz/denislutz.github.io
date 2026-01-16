@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thesis - Code Generation for Spring with OAW - Denis Lutz</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Language Switcher -->
+    <nav class="bg-slate-900 text-white py-2">
+        <div class="max-w-4xl mx-auto px-6 flex justify-between text-sm">
+            <a href="../" class="hover:text-slate-300">&larr; Back to Home</a>
+            <div class="flex gap-4">
+                <span class="text-slate-300">EN</span>
+                <a href="../../de/articles/thesis-code-generation-spring-oaw.html" class="hover:text-slate-300">DE</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="bg-gradient-to-br from-slate-900 to-slate-700 text-white py-16">
+        <div class="max-w-4xl mx-auto px-6">
+            <h1 class="text-4xl font-bold mb-4">Thesis: Code Generation for Spring with OAW</h1>
+            <p class="text-slate-300">Model-Driven Architecture for full-scale Spring applications (2008)</p>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-6 py-12">
+        <article class="bg-white rounded-lg shadow-md p-8">
+
+            <!-- Introduction -->
+            <section class="mb-10">
+                <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                    Back in July 2008, I finished my thesis. Here are some theoretical details about it and reflections after more than 15 years.
+                </p>
+                <p class="text-gray-700 leading-relaxed mb-6">
+                    The main goal of my thesis was to implement a full-scale Spring architecture using the Model-Driven Architecture (MDA) approach.
+                </p>
+                <p class="text-gray-700 leading-relaxed">
+                    The thesis was innovative at the time since there was not a single scientific work that executed a complete model-to-model and model-to-code transformation for Spring applications.
+                </p>
+            </section>
+
+            <!-- Acknowledgments -->
+            <section class="mb-10">
+                <h2 class="text-2xl font-bold text-slate-800 mb-6 border-b-2 border-slate-200 pb-3">Influences and Acknowledgments</h2>
+                <p class="text-gray-700 leading-relaxed">
+                    My main influences back then were Markus Voelter and some great developers at itemis, a company that focused on model-driven generation approaches. I want to thank all the developers who explored this topic with me and provided both practical and theoretical input.
+                </p>
+            </section>
+
+            <!-- Classical Spring Architecture -->
+            <section class="mb-10">
+                <h2 class="text-2xl font-bold text-slate-800 mb-6 border-b-2 border-slate-200 pb-3">The Classical Spring Architecture</h2>
+                <p class="text-gray-700 leading-relaxed mb-6">
+                    What is a classical Spring architecture? It's the best-practice setup known to developers and architects. The first sketches for this can be found in Rod Johnson's books about Spring.
+                </p>
+
+                <!-- Architecture Diagram -->
+                <div class="bg-slate-100 rounded-lg p-6 my-8">
+                    <h4 class="font-semibold text-slate-700 mb-4 text-center">Classical Spring Architecture (2008)</h4>
+                    <div class="flex flex-col gap-3">
+                        <div class="bg-blue-100 border-2 border-blue-300 rounded-lg p-3 text-center">
+                            <span class="font-semibold text-blue-800">Presentation Layer</span>
+                            <p class="text-xs text-blue-600">Controllers, Views</p>
+                        </div>
+                        <div class="flex justify-center">
+                            <span class="text-slate-400">&darr;</span>
+                        </div>
+                        <div class="bg-green-100 border-2 border-green-300 rounded-lg p-3 text-center">
+                            <span class="font-semibold text-green-800">Service Layer</span>
+                            <p class="text-xs text-green-600">Business Logic, Transactions</p>
+                        </div>
+                        <div class="flex justify-center">
+                            <span class="text-slate-400">&darr;</span>
+                        </div>
+                        <div class="bg-purple-100 border-2 border-purple-300 rounded-lg p-3 text-center">
+                            <span class="font-semibold text-purple-800">Data Access Layer</span>
+                            <p class="text-xs text-purple-600">DAOs, Repositories</p>
+                        </div>
+                        <div class="flex justify-center">
+                            <span class="text-slate-400">&darr;</span>
+                        </div>
+                        <div class="bg-orange-100 border-2 border-orange-300 rounded-lg p-3 text-center">
+                            <span class="font-semibold text-orange-800">Domain Model</span>
+                            <p class="text-xs text-orange-600">Entities, Value Objects</p>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="text-gray-700 leading-relaxed">
+                    Since there was barely any code generation inside the Spring framework back in 2008, but we had a consistent pattern for each entity CRUD cycle, it made a lot of sense to generate the corresponding architecture from a given UML model.
+                </p>
+            </section>
+
+            <!-- OAW Framework -->
+            <section class="mb-10">
+                <h2 class="text-2xl font-bold text-slate-800 mb-6 border-b-2 border-slate-200 pb-3">The OAW Framework</h2>
+                <p class="text-gray-700 leading-relaxed mb-6">
+                    The OAW (openArchitectureWare) framework appeared on the horizon with great capabilities for textual editors inside the Eclipse IDE and provided a way to practically implement model-driven generation.
+                </p>
+                <p class="text-gray-700 leading-relaxed">
+                    What was still missing at the time was the model-to-model generation part. The motivation behind this was to abstract the business domain from the technical domain at the UML model level — and this became a core part of my thesis.
+                </p>
+            </section>
+
+            <!-- Two Model Approach -->
+            <section class="mb-10">
+                <h2 class="text-2xl font-bold text-slate-800 mb-6 border-b-2 border-slate-200 pb-3">The Two-Model Approach</h2>
+                <p class="text-gray-700 leading-relaxed mb-6">
+                    I implemented a classical two-model approach that separates concerns:
+                </p>
+
+                <div class="bg-slate-100 rounded-lg p-6 my-8">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-white rounded-lg p-4 border-2 border-slate-300">
+                            <h4 class="font-semibold text-slate-800 mb-2">Platform Independent Model (PIM)</h4>
+                            <p class="text-gray-600 text-sm">Business domain entities and relationships defined in pure text using a domain-specific language</p>
+                        </div>
+                        <div class="bg-white rounded-lg p-4 border-2 border-slate-300">
+                            <h4 class="font-semibold text-slate-800 mb-2">Platform Specific Model (PSM)</h4>
+                            <p class="text-gray-600 text-sm">Technical architecture model with Spring-specific implementation details</p>
+                        </div>
+                    </div>
+                    <div class="flex justify-center mt-4">
+                        <div class="bg-slate-700 text-white rounded px-4 py-2 text-sm">
+                            Model-to-Model Transformation &rarr; Model-to-Code Generation
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Key Features -->
+            <section class="mb-10">
+                <h2 class="text-2xl font-bold text-slate-800 mb-6 border-b-2 border-slate-200 pb-3">Key Features of the Implementation</h2>
+                <div class="space-y-6">
+                    <div class="border-l-4 border-blue-500 pl-4">
+                        <h4 class="font-semibold text-slate-800">Textual DSL Editor</h4>
+                        <p class="text-gray-600 text-sm">A domain-specific language defining UML-level models in pure text. This was extremely useful for source code management systems and merging changes with the team.</p>
+                    </div>
+                    <div class="border-l-4 border-blue-500 pl-4">
+                        <h4 class="font-semibold text-slate-800">Code Autocomplete</h4>
+                        <p class="text-gray-600 text-sm">Full IDE support within Eclipse, including syntax highlighting and intelligent code completion for the textual model.</p>
+                    </div>
+                    <div class="border-l-4 border-blue-500 pl-4">
+                        <h4 class="font-semibold text-slate-800">Massive Code Generation</h4>
+                        <p class="text-gray-600 text-sm">The generated code output was tremendous and covered the entire best-practice Spring architecture — all from a single textual model input.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Generated Output -->
+            <section class="mb-10">
+                <h2 class="text-2xl font-bold text-slate-800 mb-6 border-b-2 border-slate-200 pb-3">What Got Generated</h2>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    From a single textual model definition, the system generated:
+                </p>
+                <ul class="space-y-2 text-gray-700 ml-6">
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-3">&#10003;</span>
+                        <span>Domain entities with JPA annotations</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-3">&#10003;</span>
+                        <span>Data Access Objects (DAOs) with CRUD operations</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-3">&#10003;</span>
+                        <span>Service layer interfaces and implementations</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-3">&#10003;</span>
+                        <span>Spring configuration files</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-3">&#10003;</span>
+                        <span>Controller stubs for the presentation layer</span>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Reflections -->
+            <section class="mb-10">
+                <h2 class="text-2xl font-bold text-slate-800 mb-6 border-b-2 border-slate-200 pb-3">Reflections After 15+ Years</h2>
+                <p class="text-gray-700 leading-relaxed mb-6">
+                    What can I say more than 15 years after writing this thesis?
+                </p>
+                <div class="space-y-4">
+                    <div class="bg-slate-50 rounded-lg p-4">
+                        <h4 class="font-semibold text-slate-800 mb-2">The Architecture Persists</h4>
+                        <p class="text-gray-600 text-sm">The Spring architecture is still fundamentally the same, with some variations. The layered approach remains the gold standard for enterprise Java applications.</p>
+                    </div>
+                    <div class="bg-slate-50 rounded-lg p-4">
+                        <h4 class="font-semibold text-slate-800 mb-2">Convention Over Configuration</h4>
+                        <p class="text-gray-600 text-sm">I never worked with model-driven generation after this thesis since I moved to the e-commerce space. Modern Spring features now completely generate the database layer. "Convention over configuration" has eliminated much of the needed configuration effort and made code generation obsolete for a significant portion of development work.</p>
+                    </div>
+                    <div class="bg-slate-50 rounded-lg p-4">
+                        <h4 class="font-semibold text-slate-800 mb-2">Still Relevant for Complex Domains</h4>
+                        <p class="text-gray-600 text-sm">I still see good use cases specifically for OAW tooling like Xtext for very complex business domains, such as electronics. In these cases, a domain expert can build a custom editor to support software engineers in their work.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Download -->
+            <section>
+                <h2 class="text-2xl font-bold text-slate-800 mb-6 border-b-2 border-slate-200 pb-3">Download the Full Thesis</h2>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    If you want to dive deeper into my thesis, you can download the complete document. Please note that it's written in German.
+                </p>
+                <p class="text-gray-500 italic text-sm">
+                    (Download link available upon request)
+                </p>
+            </section>
+
+        </article>
+    </main>
+
+    <footer class="bg-slate-800 text-slate-400 text-center py-6 mt-12">
+        <p>&copy; 2025 Denis Lutz. All rights reserved.</p>
+    </footer>
+</body>
+</html>

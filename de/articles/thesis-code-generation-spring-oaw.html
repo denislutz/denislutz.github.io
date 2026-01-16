@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diplomarbeit - Code-Generierung für Spring mit OAW - Denis Lutz</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Language Switcher -->
+    <nav class="bg-slate-900 text-white py-2">
+        <div class="max-w-4xl mx-auto px-6 flex justify-between text-sm">
+            <a href="../" class="hover:text-slate-300">&larr; Zurück zur Startseite</a>
+            <div class="flex gap-4">
+                <a href="../../en/articles/thesis-code-generation-spring-oaw.html" class="hover:text-slate-300">EN</a>
+                <span class="text-slate-300">DE</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="bg-gradient-to-br from-slate-900 to-slate-700 text-white py-16">
+        <div class="max-w-4xl mx-auto px-6">
+            <h1 class="text-4xl font-bold mb-4">Diplomarbeit: Code-Generierung für Spring mit OAW</h1>
+            <p class="text-slate-300">Model-Driven Architecture für vollständige Spring-Anwendungen (2008)</p>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-6 py-12">
+        <article class="bg-white rounded-lg shadow-md p-8">
+
+            <!-- Introduction -->
+            <section class="mb-10">
+                <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                    Im Juli 2008 habe ich meine Diplomarbeit abgeschlossen. Hier sind einige theoretische Details dazu und Reflexionen nach mehr als 15 Jahren.
+                </p>
+                <p class="text-gray-700 leading-relaxed mb-6">
+                    Das Hauptziel meiner Diplomarbeit war die Implementierung einer vollständigen Spring-Architektur unter Verwendung des Model-Driven Architecture (MDA) Ansatzes.
+                </p>
+                <p class="text-gray-700 leading-relaxed">
+                    Die Arbeit war damals innovativ, da es keine einzige wissenschaftliche Arbeit gab, die eine vollständige Modell-zu-Modell- und Modell-zu-Code-Transformation für Spring-Anwendungen durchführte.
+                </p>
+            </section>
+
+            <!-- Acknowledgments -->
+            <section class="mb-10">
+                <h2 class="text-2xl font-bold text-slate-800 mb-6 border-b-2 border-slate-200 pb-3">Einflüsse und Danksagungen</h2>
+                <p class="text-gray-700 leading-relaxed">
+                    Meine Haupteinflüsse waren damals Markus Voelter und einige großartige Entwickler bei itemis, einem Unternehmen, das sich auf modellgetriebene Generierungsansätze spezialisierte. Ich möchte allen Entwicklern danken, die dieses Thema mit mir erkundet und sowohl praktischen als auch theoretischen Input geliefert haben.
+                </p>
+            </section>
+
+            <!-- Classical Spring Architecture -->
+            <section class="mb-10">
+                <h2 class="text-2xl font-bold text-slate-800 mb-6 border-b-2 border-slate-200 pb-3">Die klassische Spring-Architektur</h2>
+                <p class="text-gray-700 leading-relaxed mb-6">
+                    Was ist eine klassische Spring-Architektur? Es ist das Best-Practice-Setup, das Entwicklern und Architekten bekannt ist. Die ersten Skizzen dafür finden sich in Rod Johnsons Büchern über Spring.
+                </p>
+
+                <!-- Architecture Diagram -->
+                <div class="bg-slate-100 rounded-lg p-6 my-8">
+                    <h4 class="font-semibold text-slate-700 mb-4 text-center">Klassische Spring-Architektur (2008)</h4>
+                    <div class="flex flex-col gap-3">
+                        <div class="bg-blue-100 border-2 border-blue-300 rounded-lg p-3 text-center">
+                            <span class="font-semibold text-blue-800">Präsentationsschicht</span>
+                            <p class="text-xs text-blue-600">Controller, Views</p>
+                        </div>
+                        <div class="flex justify-center">
+                            <span class="text-slate-400">&darr;</span>
+                        </div>
+                        <div class="bg-green-100 border-2 border-green-300 rounded-lg p-3 text-center">
+                            <span class="font-semibold text-green-800">Service-Schicht</span>
+                            <p class="text-xs text-green-600">Geschäftslogik, Transaktionen</p>
+                        </div>
+                        <div class="flex justify-center">
+                            <span class="text-slate-400">&darr;</span>
+                        </div>
+                        <div class="bg-purple-100 border-2 border-purple-300 rounded-lg p-3 text-center">
+                            <span class="font-semibold text-purple-800">Datenzugriffsschicht</span>
+                            <p class="text-xs text-purple-600">DAOs, Repositories</p>
+                        </div>
+                        <div class="flex justify-center">
+                            <span class="text-slate-400">&darr;</span>
+                        </div>
+                        <div class="bg-orange-100 border-2 border-orange-300 rounded-lg p-3 text-center">
+                            <span class="font-semibold text-orange-800">Domänenmodell</span>
+                            <p class="text-xs text-orange-600">Entitäten, Value Objects</p>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="text-gray-700 leading-relaxed">
+                    Da es 2008 kaum Code-Generierung innerhalb des Spring-Frameworks gab, wir aber ein konsistentes Muster für jeden Entity-CRUD-Zyklus hatten, machte es viel Sinn, die entsprechende Architektur aus einem gegebenen UML-Modell zu generieren.
+                </p>
+            </section>
+
+            <!-- OAW Framework -->
+            <section class="mb-10">
+                <h2 class="text-2xl font-bold text-slate-800 mb-6 border-b-2 border-slate-200 pb-3">Das OAW-Framework</h2>
+                <p class="text-gray-700 leading-relaxed mb-6">
+                    Das OAW-Framework (openArchitectureWare) erschien am Horizont mit großartigen Fähigkeiten für textuelle Editoren innerhalb der Eclipse-IDE und bot eine Möglichkeit, modellgetriebene Generierung praktisch umzusetzen.
+                </p>
+                <p class="text-gray-700 leading-relaxed">
+                    Was damals noch fehlte, war der Teil der Modell-zu-Modell-Generierung. Die Motivation dahinter war, die Geschäftsdomäne von der technischen Domäne auf der UML-Modellebene zu abstrahieren — und dies wurde ein Kernbestandteil meiner Diplomarbeit.
+                </p>
+            </section>
+
+            <!-- Two Model Approach -->
+            <section class="mb-10">
+                <h2 class="text-2xl font-bold text-slate-800 mb-6 border-b-2 border-slate-200 pb-3">Der Zwei-Modell-Ansatz</h2>
+                <p class="text-gray-700 leading-relaxed mb-6">
+                    Ich implementierte einen klassischen Zwei-Modell-Ansatz, der Anliegen trennt:
+                </p>
+
+                <div class="bg-slate-100 rounded-lg p-6 my-8">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-white rounded-lg p-4 border-2 border-slate-300">
+                            <h4 class="font-semibold text-slate-800 mb-2">Platform Independent Model (PIM)</h4>
+                            <p class="text-gray-600 text-sm">Geschäftsdomänen-Entitäten und Beziehungen, definiert in reinem Text mittels einer domänenspezifischen Sprache</p>
+                        </div>
+                        <div class="bg-white rounded-lg p-4 border-2 border-slate-300">
+                            <h4 class="font-semibold text-slate-800 mb-2">Platform Specific Model (PSM)</h4>
+                            <p class="text-gray-600 text-sm">Technisches Architekturmodell mit Spring-spezifischen Implementierungsdetails</p>
+                        </div>
+                    </div>
+                    <div class="flex justify-center mt-4">
+                        <div class="bg-slate-700 text-white rounded px-4 py-2 text-sm">
+                            Modell-zu-Modell-Transformation &rarr; Modell-zu-Code-Generierung
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Key Features -->
+            <section class="mb-10">
+                <h2 class="text-2xl font-bold text-slate-800 mb-6 border-b-2 border-slate-200 pb-3">Hauptmerkmale der Implementierung</h2>
+                <div class="space-y-6">
+                    <div class="border-l-4 border-blue-500 pl-4">
+                        <h4 class="font-semibold text-slate-800">Textueller DSL-Editor</h4>
+                        <p class="text-gray-600 text-sm">Eine domänenspezifische Sprache, die UML-Level-Modelle in reinem Text definiert. Dies war äußerst nützlich für Versionskontrollsysteme und das Zusammenführen von Änderungen im Team.</p>
+                    </div>
+                    <div class="border-l-4 border-blue-500 pl-4">
+                        <h4 class="font-semibold text-slate-800">Code-Autovervollständigung</h4>
+                        <p class="text-gray-600 text-sm">Volle IDE-Unterstützung innerhalb von Eclipse, einschließlich Syntaxhervorhebung und intelligenter Code-Vervollständigung für das textuelle Modell.</p>
+                    </div>
+                    <div class="border-l-4 border-blue-500 pl-4">
+                        <h4 class="font-semibold text-slate-800">Massive Code-Generierung</h4>
+                        <p class="text-gray-600 text-sm">Der generierte Code-Output war enorm und deckte die gesamte Best-Practice-Spring-Architektur ab — alles aus einer einzigen textuellen Modelleingabe.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Generated Output -->
+            <section class="mb-10">
+                <h2 class="text-2xl font-bold text-slate-800 mb-6 border-b-2 border-slate-200 pb-3">Was wurde generiert</h2>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    Aus einer einzigen textuellen Modelldefinition generierte das System:
+                </p>
+                <ul class="space-y-2 text-gray-700 ml-6">
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-3">&#10003;</span>
+                        <span>Domänen-Entitäten mit JPA-Annotationen</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-3">&#10003;</span>
+                        <span>Data Access Objects (DAOs) mit CRUD-Operationen</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-3">&#10003;</span>
+                        <span>Service-Layer-Interfaces und Implementierungen</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-3">&#10003;</span>
+                        <span>Spring-Konfigurationsdateien</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-3">&#10003;</span>
+                        <span>Controller-Gerüste für die Präsentationsschicht</span>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Reflections -->
+            <section class="mb-10">
+                <h2 class="text-2xl font-bold text-slate-800 mb-6 border-b-2 border-slate-200 pb-3">Reflexionen nach 15+ Jahren</h2>
+                <p class="text-gray-700 leading-relaxed mb-6">
+                    Was kann ich mehr als 15 Jahre nach dem Schreiben dieser Diplomarbeit sagen?
+                </p>
+                <div class="space-y-4">
+                    <div class="bg-slate-50 rounded-lg p-4">
+                        <h4 class="font-semibold text-slate-800 mb-2">Die Architektur besteht fort</h4>
+                        <p class="text-gray-600 text-sm">Die Spring-Architektur ist im Wesentlichen immer noch dieselbe, mit einigen Variationen. Der geschichtete Ansatz bleibt der Goldstandard für Enterprise-Java-Anwendungen.</p>
+                    </div>
+                    <div class="bg-slate-50 rounded-lg p-4">
+                        <h4 class="font-semibold text-slate-800 mb-2">Convention over Configuration</h4>
+                        <p class="text-gray-600 text-sm">Ich habe nach dieser Diplomarbeit nie mehr mit modellgetriebener Generierung gearbeitet, da ich in den E-Commerce-Bereich gewechselt bin. Moderne Spring-Features generieren heute die Datenbankschicht vollständig. "Convention over Configuration" hat viel des nötigen Konfigurationsaufwands eliminiert und macht Code-Generierung für einen großen Teil der Entwicklungsarbeit obsolet.</p>
+                    </div>
+                    <div class="bg-slate-50 rounded-lg p-4">
+                        <h4 class="font-semibold text-slate-800 mb-2">Immer noch relevant für komplexe Domänen</h4>
+                        <p class="text-gray-600 text-sm">Ich sehe immer noch gute Anwendungsfälle speziell für OAW-Tooling wie Xtext für sehr komplexe Geschäftsdomänen, wie zum Beispiel Elektronik. In diesen Fällen kann ein Domänenexperte einen benutzerdefinierten Editor erstellen, um Software-Ingenieure bei ihrer Arbeit zu unterstützen.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Download -->
+            <section>
+                <h2 class="text-2xl font-bold text-slate-800 mb-6 border-b-2 border-slate-200 pb-3">Die vollständige Diplomarbeit herunterladen</h2>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    Wenn Sie tiefer in meine Diplomarbeit eintauchen möchten, können Sie das vollständige Dokument herunterladen. Es ist auf Deutsch verfasst.
+                </p>
+                <p class="text-gray-500 italic text-sm">
+                    (Download-Link auf Anfrage verfügbar)
+                </p>
+            </section>
+
+        </article>
+    </main>
+
+    <footer class="bg-slate-800 text-slate-400 text-center py-6 mt-12">
+        <p>&copy; 2025 Denis Lutz. Alle Rechte vorbehalten.</p>
+    </footer>
+</body>
+</html>
