@@ -5,119 +5,147 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Denis Lutz - Software Engineer</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        sol: {
+                            base03: '#002b36',
+                            base02: '#073642',
+                            base01: '#586e75',
+                            base00: '#657b83',
+                            base0: '#839496',
+                            base1: '#93a1a1',
+                            base2: '#eee8d5',
+                            base3: '#fdf6e3',
+                            yellow: '#b58900',
+                            orange: '#cb4b16',
+                            red: '#dc322f',
+                            magenta: '#d33682',
+                            violet: '#6c71c4',
+                            blue: '#268bd2',
+                            cyan: '#2aa198',
+                            green: '#859900',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-sol-base3 text-sol-base00">
     <!-- Language Switcher -->
-    <nav class="bg-slate-900 text-white py-2">
+    <nav class="bg-sol-base2 text-sol-base01 py-2 border-b border-sol-base1">
         <div class="max-w-4xl mx-auto px-6 flex justify-end gap-4 text-sm">
-            <span class="text-slate-300">EN</span>
-            <a href="../de/" class="hover:text-slate-300">DE</a>
+            <span class="text-sol-base01 font-semibold">EN</span>
+            <a href="../de/" class="hover:text-sol-blue">DE</a>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <header class="bg-gradient-to-br from-slate-900 to-slate-700 text-white py-20">
+    <header class="bg-sol-base2 text-sol-base01 py-20 border-b border-sol-base1">
         <div class="max-w-4xl mx-auto px-6 text-center">
-            <h1 class="text-5xl font-bold mb-4">Denis Lutz</h1>
-            <p class="text-xl text-slate-300">Software Engineer with 20+ Years of Experience</p>
+            <h1 class="text-5xl font-bold mb-4 text-sol-base02">Denis Lutz</h1>
+            <p class="text-xl text-sol-base00">Software Engineer with 20+ Years of Experience</p>
         </div>
     </header>
 
     <main class="max-w-4xl mx-auto px-6 py-12">
         <!-- About Section -->
-        <section class="bg-white rounded-lg shadow-md p-8 mb-8">
-            <h2 class="text-2xl font-bold text-slate-800 mb-6 border-b-2 border-slate-200 pb-3">Who am I</h2>
-            <ul class="space-y-3 text-gray-700">
+        <section class="bg-sol-base3 rounded-lg shadow-md p-8 mb-8 border border-sol-base1">
+            <h2 class="text-2xl font-bold text-sol-base01 mb-6 border-b-2 border-sol-base1 pb-3">Who am I</h2>
+            <ul class="space-y-3 text-sol-base00">
                 <li class="flex items-start">
-                    <span class="text-slate-500 mr-3">&#8226;</span>
+                    <span class="text-sol-cyan mr-3">&#8226;</span>
                     Masters (German Diploma) in Commercial IT from University of Mannheim
                 </li>
                 <li class="flex items-start">
-                    <span class="text-slate-500 mr-3">&#8226;</span>
+                    <span class="text-sol-cyan mr-3">&#8226;</span>
                     Practical software engineering since 2003
                 </li>
                 <li class="flex items-start">
-                    <span class="text-slate-500 mr-3">&#8226;</span>
+                    <span class="text-sol-cyan mr-3">&#8226;</span>
                     Proficient in 4 tech stacks: Java, Ruby, iOS, JavaScript/TypeScript
                 </li>
                 <li class="flex items-start">
-                    <span class="text-slate-500 mr-3">&#8226;</span>
+                    <span class="text-sol-cyan mr-3">&#8226;</span>
                     Founded a startup in Germany and grew it to 80 productive company customers
                 </li>
                 <li class="flex items-start">
-                    <span class="text-slate-500 mr-3">&#8226;</span>
+                    <span class="text-sol-cyan mr-3">&#8226;</span>
                     CTO at an automotive company in Prague, Czech Republic
                 </li>
                 <li class="flex items-start">
-                    <span class="text-slate-500 mr-3">&#8226;</span>
+                    <span class="text-sol-cyan mr-3">&#8226;</span>
                     Freelance full stack developer since 2015 with focus on JavaScript/TypeScript
                 </li>
             </ul>
         </section>
 
         <!-- Services Section -->
-        <section class="bg-white rounded-lg shadow-md p-8 mb-8">
-            <h2 class="text-2xl font-bold text-slate-800 mb-6 border-b-2 border-slate-200 pb-3">What I do</h2>
+        <section class="bg-sol-base3 rounded-lg shadow-md p-8 mb-8 border border-sol-base1">
+            <h2 class="text-2xl font-bold text-sol-base01 mb-6 border-b-2 border-sol-base1 pb-3">What I do</h2>
             <div class="grid md:grid-cols-2 gap-6">
-                <div class="p-4 bg-slate-50 rounded-lg">
-                    <h3 class="font-semibold text-lg text-slate-800 mb-2">Project Audit</h3>
-                    <p class="text-gray-600 text-sm">Let me audit your code as an independent entity, locate all issues in your project and resolve them in a reasonable time span.</p>
+                <div class="p-4 bg-sol-base2 rounded-lg">
+                    <h3 class="font-semibold text-lg text-sol-base01 mb-2">Project Audit</h3>
+                    <p class="text-sol-base00 text-sm">Let me audit your code as an independent entity, locate all issues in your project and resolve them in a reasonable time span.</p>
                 </div>
-                <div class="p-4 bg-slate-50 rounded-lg">
-                    <h3 class="font-semibold text-lg text-slate-800 mb-2">Architecture</h3>
-                    <p class="text-gray-600 text-sm">Specifically React.js is lacking a fixed architectural approach. I will bring you an architecture that I developed in countless projects.</p>
+                <div class="p-4 bg-sol-base2 rounded-lg">
+                    <h3 class="font-semibold text-lg text-sol-base01 mb-2">Architecture</h3>
+                    <p class="text-sol-base00 text-sm">Specifically React.js is lacking a fixed architectural approach. I will bring you an architecture that I developed in countless projects.</p>
                 </div>
-                <div class="p-4 bg-slate-50 rounded-lg">
-                    <h3 class="font-semibold text-lg text-slate-800 mb-2">Develop Features</h3>
-                    <p class="text-gray-600 text-sm">Bring me into your project to speed up your feature development and stabilize your code base.</p>
+                <div class="p-4 bg-sol-base2 rounded-lg">
+                    <h3 class="font-semibold text-lg text-sol-base01 mb-2">Develop Features</h3>
+                    <p class="text-sol-base00 text-sm">Bring me into your project to speed up your feature development and stabilize your code base.</p>
                 </div>
-                <div class="p-4 bg-slate-50 rounded-lg">
-                    <h3 class="font-semibold text-lg text-slate-800 mb-2">Test with ROI</h3>
-                    <p class="text-gray-600 text-sm">A wrong testing approach makes testing either costly or impossible. Let me bring my most pragmatic testing strategy to your team.</p>
+                <div class="p-4 bg-sol-base2 rounded-lg">
+                    <h3 class="font-semibold text-lg text-sol-base01 mb-2">Test with ROI</h3>
+                    <p class="text-sol-base00 text-sm">A wrong testing approach makes testing either costly or impossible. Let me bring my most pragmatic testing strategy to your team.</p>
                 </div>
-                <div class="p-4 bg-slate-50 rounded-lg">
-                    <h3 class="font-semibold text-lg text-slate-800 mb-2">Coach Your Team</h3>
-                    <p class="text-gray-600 text-sm">I will present best practices and coding approaches that your team will love and apply.</p>
+                <div class="p-4 bg-sol-base2 rounded-lg">
+                    <h3 class="font-semibold text-lg text-sol-base01 mb-2">Coach Your Team</h3>
+                    <p class="text-sol-base00 text-sm">I will present best practices and coding approaches that your team will love and apply.</p>
                 </div>
-                <div class="p-4 bg-slate-50 rounded-lg">
-                    <h3 class="font-semibold text-lg text-slate-800 mb-2">Kick Start Project</h3>
-                    <p class="text-gray-600 text-sm">Get me for a short project kick off, make the right decisions at the beginning.</p>
+                <div class="p-4 bg-sol-base2 rounded-lg">
+                    <h3 class="font-semibold text-lg text-sol-base01 mb-2">Kick Start Project</h3>
+                    <p class="text-sol-base00 text-sm">Get me for a short project kick off, make the right decisions at the beginning.</p>
                 </div>
             </div>
         </section>
 
         <!-- Articles Section -->
-        <section class="bg-white rounded-lg shadow-md p-8 mb-8">
-            <h2 class="text-2xl font-bold text-slate-800 mb-6 border-b-2 border-slate-200 pb-3">Articles — Some of My Knowledge</h2>
+        <section class="bg-sol-base3 rounded-lg shadow-md p-8 mb-8 border border-sol-base1">
+            <h2 class="text-2xl font-bold text-sol-base01 mb-6 border-b-2 border-sol-base1 pb-3">Articles — Some of My Knowledge</h2>
             <div class="space-y-4">
-                <a href="./articles/simple-domain-architecture-react.html" class="block border-l-4 border-blue-500 pl-4 hover:bg-slate-50 transition-colors py-2">
-                    <h3 class="font-semibold text-slate-800">Simple Domain Architecture for React</h3>
-                    <p class="text-gray-600 text-sm">A pragmatic approach to structuring React applications using domain-driven design principles without the complexity.</p>
+                <a href="./articles/simple-domain-architecture-react.html" class="block border-l-4 border-sol-blue pl-4 hover:bg-sol-base2 transition-colors py-2 rounded-r">
+                    <h3 class="font-semibold text-sol-base01">Simple Domain Architecture for React</h3>
+                    <p class="text-sol-base00 text-sm">A pragmatic approach to structuring React applications using domain-driven design principles without the complexity.</p>
                 </a>
-                <a href="./articles/thesis-code-generation-spring-oaw.html" class="block border-l-4 border-blue-500 pl-4 hover:bg-slate-50 transition-colors py-2">
-                    <h3 class="font-semibold text-slate-800">Thesis: Code Generation for Spring with OAW</h3>
-                    <p class="text-gray-600 text-sm">My 2008 thesis on Model-Driven Architecture for full-scale Spring applications, with reflections after 15+ years.</p>
+                <a href="./articles/thesis-code-generation-spring-oaw.html" class="block border-l-4 border-sol-blue pl-4 hover:bg-sol-base2 transition-colors py-2 rounded-r">
+                    <h3 class="font-semibold text-sol-base01">Thesis: Code Generation for Spring with OAW</h3>
+                    <p class="text-sol-base00 text-sm">My 2008 thesis on Model-Driven Architecture for full-scale Spring applications, with reflections after 15+ years.</p>
                 </a>
-                <a href="./articles/termingenie-appointment-genius.html" class="block border-l-4 border-blue-500 pl-4 hover:bg-slate-50 transition-colors py-2">
-                    <h3 class="font-semibold text-slate-800">Termingenie - Appointment Genius</h3>
-                    <p class="text-gray-600 text-sm">My SaaS startup for online appointment booking, built with Ruby on Rails and grown to 80+ customers (2011-2020).</p>
+                <a href="./articles/termingenie-appointment-genius.html" class="block border-l-4 border-sol-blue pl-4 hover:bg-sol-base2 transition-colors py-2 rounded-r">
+                    <h3 class="font-semibold text-sol-base01">Termingenie - Appointment Genius</h3>
+                    <p class="text-sol-base00 text-sm">My SaaS startup for online appointment booking, built with Ruby on Rails and grown to 80+ customers (2011-2020).</p>
                 </a>
             </div>
         </section>
 
         <!-- Contact Section -->
-        <section class="bg-white rounded-lg shadow-md p-8">
-            <h2 class="text-2xl font-bold text-slate-800 mb-6 border-b-2 border-slate-200 pb-3">Let's connect</h2>
-            <div class="flex flex-wrap gap-6 text-gray-700">
-                <a href="mailto:denis.lutz@gmail.com" class="flex items-center gap-2 text-slate-700 hover:text-slate-900 underline">
+        <section class="bg-sol-base3 rounded-lg shadow-md p-8 border border-sol-base1">
+            <h2 class="text-2xl font-bold text-sol-base01 mb-6 border-b-2 border-sol-base1 pb-3">Let's connect</h2>
+            <div class="flex flex-wrap gap-6 text-sol-base00">
+                <a href="mailto:denis.lutz@gmail.com" class="flex items-center gap-2 text-sol-blue hover:text-sol-cyan underline">
                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
                     denis.lutz@gmail.com
                 </a>
-                <a href="https://github.com/denislutz" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-slate-700 hover:text-slate-900 underline">
+                <a href="https://github.com/denislutz" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-sol-blue hover:text-sol-cyan underline">
                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
                     GitHub
                 </a>
-                <a href="https://www.linkedin.com/in/denis-l-7946924/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-slate-700 hover:text-slate-900 underline">
+                <a href="https://www.linkedin.com/in/denis-l-7946924/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-sol-blue hover:text-sol-cyan underline">
                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
                     LinkedIn
                 </a>
@@ -125,7 +153,7 @@
         </section>
     </main>
 
-    <footer class="bg-slate-800 text-slate-400 text-center py-6 mt-12">
+    <footer class="bg-sol-base2 text-sol-base01 text-center py-6 mt-12 border-t border-sol-base1">
         <p>&copy; 2025 Denis Lutz. All rights reserved.</p>
     </footer>
 </body>
