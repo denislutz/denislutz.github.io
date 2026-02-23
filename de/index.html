@@ -35,11 +35,25 @@
     </script>
 </head>
 <body class="bg-sol-base3 text-sol-base00">
-    <!-- Language Switcher -->
+    <!-- Navigation -->
     <nav class="bg-sol-base2 text-sol-base01 py-2 border-b border-sol-base1">
-        <div class="max-w-4xl mx-auto px-6 flex justify-end gap-4 text-sm">
-            <a href="../en/" class="hover:text-sol-blue">EN</a>
-            <span class="text-sol-base01 font-semibold">DE</span>
+        <div class="max-w-4xl mx-auto px-6 flex justify-between items-center text-sm">
+            <div class="flex gap-6">
+                <a href="../de/" class="hover:text-sol-blue font-semibold text-sol-base01">Start</a>
+                <div class="relative group">
+                    <span class="cursor-default flex items-center gap-1">Leistungen <span class="text-sol-base1 text-xs">▾</span></span>
+                    <div class="absolute left-0 top-full pt-1 hidden group-hover:block z-10">
+                        <div class="bg-sol-base2 border border-sol-base1 rounded shadow-md py-1 min-w-max">
+                            <a href="../de/services/compliance-coder.html" class="block px-4 py-2 hover:bg-sol-base3 hover:text-sol-cyan">Compliance Coder</a>
+                            <a href="../de/articles/simple-domain-architecture-react.html" class="block px-4 py-2 hover:bg-sol-base3 hover:text-sol-cyan">React-Architektur</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex gap-4">
+                <a href="../en/" class="hover:text-sol-blue">EN</a>
+                <span class="text-sol-base01 font-semibold">DE</span>
+            </div>
         </div>
     </nav>
 
@@ -110,6 +124,12 @@
                 <div class="p-4 bg-sol-base2 rounded-lg">
                     <h3 class="font-semibold text-lg text-sol-base01 mb-2">Projekt-Kickstart</h3>
                     <p class="text-sol-base00 text-sm">Holen Sie mich für einen kurzen Projekt-Kickoff, treffen Sie die richtigen Entscheidungen am Anfang.</p>
+                </div>
+                <div class="p-4 bg-sol-base2 rounded-lg border-l-4 border-sol-cyan md:col-span-2">
+                    <h3 class="font-semibold text-lg text-sol-base01 mb-2">
+                        <a href="./services/compliance-coder.html" class="hover:text-sol-cyan underline">Compliance Coder</a>
+                    </h3>
+                    <p class="text-sol-base00 text-sm">KI-gestützte Entwicklung – vollständig in Ihrer Infrastruktur. DSGVO-konform, BaFin-gerecht, kein einziges Byte verlässt Ihr Netzwerk. Für regulierte Unternehmen, die Cloud-basierte KI-Tools nicht einsetzen können.</p>
                 </div>
             </div>
         </section>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Denis Lutz</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        sol: {
+                            base03: '#002b36',
+                            base02: '#073642',
+                            base01: '#586e75',
+                            base00: '#657b83',
+                            base0: '#839496',
+                            base1: '#93a1a1',
+                            base2: '#eee8d5',
+                            base3: '#fdf6e3',
+                            yellow: '#b58900',
+                            orange: '#cb4b16',
+                            red: '#dc322f',
+                            magenta: '#d33682',
+                            violet: '#6c71c4',
+                            blue: '#268bd2',
+                            cyan: '#2aa198',
+                            green: '#859900',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-sol-base3 text-sol-base00">
+    <!-- Navigation -->
+    <nav class="bg-sol-base2 text-sol-base01 py-2 border-b border-sol-base1">
+        <div class="max-w-4xl mx-auto px-6 flex justify-between items-center text-sm">
+            <div class="flex gap-6">
+                <a href="../" class="hover:text-sol-blue">Home</a>
+                <div class="relative group">
+                    <span class="text-sol-base01 font-semibold flex items-center gap-1 cursor-default">Services <span class="text-sol-base1 text-xs">▾</span></span>
+                    <div class="absolute left-0 top-full pt-1 hidden group-hover:block z-10">
+                        <div class="bg-sol-base2 border border-sol-base1 rounded shadow-md py-1 min-w-max">
+                            <a href="./compliance-coder.html" class="block px-4 py-2 hover:bg-sol-base3 hover:text-sol-cyan">Compliance Coder</a>
+                            <a href="../articles/simple-domain-architecture-react.html" class="block px-4 py-2 hover:bg-sol-base3 hover:text-sol-cyan">React Architecture</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex gap-4">
+                <span class="text-sol-base01 font-semibold">EN</span>
+                <a href="../../de/services/" class="hover:text-sol-blue">DE</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="bg-sol-base2 text-sol-base01 py-16 border-b border-sol-base1">
+        <div class="max-w-4xl mx-auto px-6">
+            <h1 class="text-4xl font-bold mb-4 text-sol-base02">Services</h1>
+            <p class="text-xl text-sol-base00 max-w-2xl">Specialised solutions for regulated companies and ambitious development teams.</p>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-6 py-12">
+        <div class="grid md:grid-cols-2 gap-6">
+            <a href="./compliance-coder.html" class="block bg-sol-base3 rounded-lg shadow-md p-8 border border-sol-base1 hover:border-sol-cyan transition-colors group">
+                <p class="text-sol-cyan text-xs font-semibold uppercase tracking-wide mb-2">AI &amp; Infrastructure</p>
+                <h2 class="text-xl font-bold text-sol-base01 mb-3 group-hover:text-sol-cyan transition-colors">Compliance Coder</h2>
+                <p class="text-sol-base00 text-sm">AI-assisted development fully inside your infrastructure. For regulated companies that can't compromise on data security.</p>
+                <p class="text-sol-cyan text-sm mt-4 font-medium">Learn more &rarr;</p>
+            </a>
+        </div>
+    </main>
+
+    <footer class="bg-sol-base2 text-sol-base01 text-center py-6 mt-12 border-t border-sol-base1">
+        <p>&copy; 2025 Denis Lutz. All rights reserved.</p>
+    </footer>
+</body>
+</html>
